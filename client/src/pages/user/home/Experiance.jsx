@@ -1,6 +1,4 @@
 import React from "react";
-import { AnimationData } from "../../utils/animationData";
-import { motion } from "framer-motion";
 import { FaPencilAlt } from "react-icons/fa";
 import { IoMdArrowDropright } from "react-icons/io";
 import { BsBoxArrowUpRight } from "react-icons/bs";

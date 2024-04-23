@@ -1,17 +1,17 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
-import User from "../pages/User";
-import Admin from "../pages/Admin";
+import User from "../components/layout/User";
+import Admin from "../components/layout/Admin";
 import Dashboard from "../pages/admin/Dashboard";
 import Auth from "../pages/Auth";
 
-const Home = React.lazy(() => import("../pages/user/Home"));
+const Home = React.lazy(() => import("../pages/user/home/Home"));
 const Blogs = React.lazy(() => import("../pages/user/Blogs"));
 const Contact = React.lazy(() => import("../pages/user/Contact"));
 const Projects = React.lazy(() => import("../pages/user/Projects"));
 const Skills = React.lazy(() => import("../pages/user/Skills"));
 const Services = React.lazy(() => import("../pages/user/Services"));
-const About = React.lazy(() => import("../pages/user/About"));
+const About = React.lazy(() => import("../pages/user/about/About"));
 const NotFound = React.lazy(() => import("../pages/NotFound"));
 
 const AppRoutes = () => {

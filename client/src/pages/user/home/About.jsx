@@ -1,9 +1,7 @@
 import React from "react";
 import { GiSkills } from "react-icons/gi";
 import { SiMinds } from "react-icons/si";
-import { motion } from "framer-motion";
-import { AnimationData } from "../../utils/animationData";
-import avatar from "../../assets/images/Logo1.png";
+import avatar from "../../../assets/images/Logo1.png";
 import { Link, useParams } from "react-router-dom";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 

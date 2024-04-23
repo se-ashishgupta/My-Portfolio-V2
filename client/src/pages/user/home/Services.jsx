@@ -3,11 +3,11 @@ import { BsBoxArrowUpRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
-import service1 from "../../assets/images/home/services/1.png";
-import service2 from "../../assets/images/home/services/2.jpeg";
-import service3 from "../../assets/images/home/services/3.jpeg";
-import service4 from "../../assets/images/home/services/4.webp";
-import pattern1 from "../../assets/images/home/services/pattern1.png";
+import service1 from "../../../assets/images/home/services/1.png";
+import service2 from "../../../assets/images/home/services/2.jpeg";
+import service3 from "../../../assets/images/home/services/3.jpeg";
+import service4 from "../../../assets/images/home/services/4.webp";
+import pattern1 from "../../../assets/images/home/services/pattern1.png";
 
 const servicesData = [
   {

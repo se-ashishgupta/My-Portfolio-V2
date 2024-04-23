@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../components/layout/Sidebar";
-import Footer from "../components/layout/Footer";
-import Loading from "./Loading";
+import Sidebar from "./Sidebar";
+import Footer from "./Footer";
+import Loading from "../../pages/Loading";
 
 const User = () => {
   return (

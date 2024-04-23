@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import Typewriter from "typewriter-effect";
-import Logo from "../../assets/images/Logo1.png";
+import Logo from "../../../assets/images/Logo1.png";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import About from "../../components/home/About";
-import Experiance from "../../components/home/Experiance";
-import Project from "../../components/home/Project";
-import Skill from "../../components/home/Skill";
-import Blog from "../../components/home/Blog";
-import Aos from "aos";
-import Services from "../../components/home/Services";
+import About from "./About";
+import Experiance from "./Experiance";
+import Project from "./Project";
+import Skill from "./Skill";
+import Blog from "./Blog";
+import Services from "./Services";
 
+import Aos from "aos";
 const Home = () => {
   useEffect(() => {
     Aos.init({});

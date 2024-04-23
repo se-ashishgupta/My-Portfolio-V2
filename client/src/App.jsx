@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import AnimatedCursor from "react-animated-cursor";
-import AppRoutes from "./routes/Routes";
+import AppRoutes from "./routes";
 
 // Animation Library
 import Aos from "aos";

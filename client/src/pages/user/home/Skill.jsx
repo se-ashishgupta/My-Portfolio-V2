@@ -1,6 +1,4 @@
 import React from "react";
-import { AnimationData } from "../../utils/animationData";
-import { motion } from "framer-motion";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
