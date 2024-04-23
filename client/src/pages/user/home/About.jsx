@@ -2,7 +2,7 @@ import React from "react";
 import { GiSkills } from "react-icons/gi";
 import { SiMinds } from "react-icons/si";
 import avatar from "../../../assets/images/Logo1.png";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 
 const About = () => {
