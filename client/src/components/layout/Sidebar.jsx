@@ -10,6 +10,7 @@ import {
   AiOutlineInfoCircle,
   AiFillInfoCircle,
   AiOutlineClose,
+  AiFillGithub,
 } from "react-icons/ai";
 import {
   PiProjectorScreenChartLight,
@@ -24,6 +25,13 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import Logo from "../../assets/images/Logo1.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveNav } from "../../redux/features/miscellaneous";
+import {
+  CiFacebook,
+  CiInstagram,
+  CiLinkedin,
+  CiTwitter,
+  CiYoutube,
+} from "react-icons/ci";
 
 const navItem = [
   {
@@ -67,6 +75,33 @@ const navItem = [
     path: "/contact",
     icon1: <AiOutlineContacts />,
     icon2: <AiFillContacts />,
+  },
+];
+
+const socialMediaAccounts = [
+  {
+    icon: <CiLinkedin />,
+    url: "https://www.linkedin.com/in/se-ashishgupta",
+  },
+  {
+    icon: <AiFillGithub />,
+    url: "https://www.github.com/se-ashishgupta",
+  },
+  {
+    icon: <CiFacebook />,
+    url: "https://www.facebook.com/seashishgupta",
+  },
+  {
+    icon: <CiTwitter />,
+    url: "/",
+  },
+  {
+    icon: <CiInstagram />,
+    url: "https://www.instagram.com/se_ashishgupta",
+  },
+  {
+    icon: <CiYoutube />,
+    url: "/",
   },
 ];
 
@@ -203,13 +238,13 @@ const Sidebar = () => {
 
       {/*Phone View Sidebar*/}
       <div
-        className={`bg-secondary_color fixed w-[14rem] top-0 h-full px-4 py-6 ${
-          sideBarOpen ? "left-0" : "-left-96"
+        className={`bg-secondary_color fixed w-full top-0 h-full px-4 py-6 ${
+          sideBarOpen ? "left-0" : "-left-[100%]"
         } transition-all duration-300 z-20`}
       >
         {/* Close Button Icon  */}
         <div
-          className={`flex justify-end items-center  `}
+          className={`flex justify-start items-center  `}
           onClick={() => setSideBarOpen(false)}
         >
           <figure
@@ -220,8 +255,8 @@ const Sidebar = () => {
         </div>
 
         {/* Nav content  */}
-        <div className=" py-[4rem] flex flex-col item-center justify-between h-full">
-          <div className=" space-y-10">
+        <div className=" py-[1rem] flex flex-col item-center justify-between h-full">
+          <div className=" space-y-6">
             {/* Logo  */}
             <div className="w-full flex items-center justify-center">
               <img
@@ -233,15 +268,15 @@ const Sidebar = () => {
 
             {/* Nav Item  */}
             <div className="flex items-center justify-center">
-              <div className="flex flex-col gap-3 items-center justify-center">
+              <div className="flex flex-col gap-2 items-center justify-center">
                 {navItem.map((item, index) => (
                   <Link
                     key={index}
                     to={item.path}
                     onClick={() => navItemHandler(item.path)}
-                    className={`text-2xl tracking-wide pb-1 hover:text-primary_color hover:font-bold transition-all ease-linear duration-300 hover:scale-110 relative after:content-[''] after:bg-white after:h-[2.5px] after:w-full after:absolute after:bottom-0 after:left-0 after:scale-0 hover:after:scale-100 after:origin-center after:transition-transform after:duration-300 ${
+                    className={`text-xl tracking-wide pb-1 hover:text-primary_color hover:font-bold transition-all ease-linear duration-300 hover:scale-110 relative after:content-[''] after:bg-white after:h-[2.5px] after:w-full after:absolute after:bottom-0 after:left-0 after:scale-0 hover:after:scale-100 after:origin-center after:transition-transform after:duration-300 ${
                       activeNav == item.path
-                        ? "font-bold after:scale-100 text-primary_color"
+                        ? "font-semibold after:scale-100 text-primary_color"
                         : "text-white "
                     }`}
                   >
@@ -252,10 +287,25 @@ const Sidebar = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-center">
-            <button className=" text-white text-2xl font-semibold tracking-wide bg-primary_color px-4 py-1 border-2 border-primary_color rounded-lg hover:bg-transparent transition-all duration-300">
+          <div className="flex items-center justify-center mb-4">
+            {/* <button className=" text-white text-2xl font-semibold tracking-wide bg-primary_color px-4 py-1 border-2 border-primary_color rounded-lg hover:bg-transparent transition-all duration-300">
               Email
-            </button>
+            </button> */}
+            {/* Social Media  */}
+            <div className="">
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                {socialMediaAccounts.map((item, index) => (
+                  <a
+                    key={index}
+                    className=" bg-secondary_color text-2xl p-1 rounded-full text-primary_color flex items-center justify-center border-[1px] transition-all  duration-300 border-primary_color hover:bg-transparent  hover:-translate-y-1 "
+                    href={item.url}
+                    target="blank"
+                  >
+                    {item.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
