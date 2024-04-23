@@ -4,7 +4,6 @@ import User from "../pages/User";
 import Admin from "../pages/Admin";
 import Dashboard from "../pages/admin/Dashboard";
 import Auth from "../pages/Auth";
-import NotFound from "../pages/Notfound";
 
 const Home = React.lazy(() => import("../pages/user/Home"));
 const Blogs = React.lazy(() => import("../pages/user/Blogs"));
@@ -13,6 +12,7 @@ const Projects = React.lazy(() => import("../pages/user/Projects"));
 const Skills = React.lazy(() => import("../pages/user/Skills"));
 const Services = React.lazy(() => import("../pages/user/Services"));
 const About = React.lazy(() => import("../pages/user/About"));
+const NotFound = React.lazy(() => import("../pages/NotFound"));
 
 const AppRoutes = () => {
   let element = useRoutes([
