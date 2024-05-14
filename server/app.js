@@ -1,17 +1,26 @@
 import express from "express";
-
-import ErrorMiddleware from "./middleware/error.js";
-
 // ENV file Configration
 import "dotenv/config";
+import ErrorMiddleware from "./middleware/error.js";
+import bodyParser from "body-parser";
 
 export const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(
   express.urlencoded({
     extended: true,
+  })
+);
+
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    // allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
