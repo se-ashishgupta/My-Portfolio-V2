@@ -3,6 +3,7 @@ import express from "express";
 import "dotenv/config";
 import ErrorMiddleware from "./middleware/error.js";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 export const app = express();
 
