@@ -4,7 +4,7 @@ import ErrorHandler from "../utils/errorHandler.js";
 import getDataUri from "../utils/dataUri.js";
 import cloudinary from "cloudinary";
 import { sendToken } from "../utils/sendToken.js";
-
+console.log(process.env.PORT);
 export const register = catchAsyncError(async (req, res, next) => {
   const { firstName, lastName, email, mobile, password } = req.body;
   const file = req.file;

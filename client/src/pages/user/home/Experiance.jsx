@@ -111,7 +111,7 @@ const TimelineItem = ({ experianceData }) => (
         return (
           <div
             key={index}
-            className={`w-full md:w-[50%] border-2 border-primary_color relative rounded-lg shadow-lg shadow-primary_color ${
+            className={`w-full md:w-[45%] border-2 border-primary_color relative rounded-lg shadow-lg shadow-primary_color ${
               even ? "md:ml-auto" : ""
             }`}
             data-aos="fade-up"
