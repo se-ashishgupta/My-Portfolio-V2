@@ -34,21 +34,33 @@ const servicesData = [
       "I build brands through cultural insights & strategic vison. Custom crafted business solutions...",
     image: service4,
   },
+  {
+    title: "Wordpress Development",
+    description:
+      "I build brands through cultural insights & strategic vison. Custom crafted business solutions...",
+    image: service4,
+  },
 ];
 
 const Services = () => {
   const settings = {
+    infinite: true,
     dots: false, // Hide dots
     arrows: false, // Hide arrows
     autoplay: true,
     autoplaySpeed: 3000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
     // centerMode: true,
     // centerPadding: "50px",
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    dots: true,
 
     responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
       {
         breakpoint: 1150,
         settings: {
@@ -88,7 +100,7 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="mt-12">
+      <div className="mt-12 ">
         <Slider {...settings}>
           {servicesData.map((item, index) => (
             <Card key={index} item={item} index={index} />

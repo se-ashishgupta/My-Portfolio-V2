@@ -63,13 +63,13 @@ const Blog = () => {
 
 const BlogCard = ({ blogData }) => (
   <>
-    <div className=" grid sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-4 xl:gap-6 2xl:gap-12 2xl:px-36">
+    <div className=" grid sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-4 xl:gap-6 2xl:gap-12 2xl:px-16 mt-12">
       {blogData.map((item, index) => (
         <div
           key={index}
           data-aos="flip-left"
           data-aos-delay={200 * (1 + index)}
-          className=" flex flex-col  border-2 border-primary_color shadow-lg shadow-primary_color"
+          className=" flex flex-col  border-4 border-primary_color"
         >
           <div className="h-[50%] overflow-hidden cursor-pointer">
             <img

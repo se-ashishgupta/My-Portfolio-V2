@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { BsBoxArrowUpRight, BsGithub } from "react-icons/bs";
 import { motion } from "framer-motion";
+import service1 from "../../../assets/images/home/services/2.jpeg";
 
 const Projects = () => {
   const eventDetails = [
@@ -42,8 +43,7 @@ const Projects = () => {
         "The real-time code editoris a web-based platform that allows multiple users to collaboratively write and edit code in real- time.",
       start_date: "20-10-2023",
       end_date: "20-10-2023",
-      thumbnail:
-        "https://res.cloudinary.com/dlr8q3omm/image/upload/v1692810610/portfolio/projects/mvy7okysp54uai9x9jtm.png",
+      thumbnail: service1,
       github_link: "",
       live_link: "",
     },
@@ -75,8 +75,7 @@ const Projects = () => {
         "The real-time code editoris a web-based platform that allows multiple users to collaboratively write and edit code in real- time.",
       start_date: "20-10-2023",
       end_date: "20-10-2023",
-      thumbnail:
-        "https://res.cloudinary.com/dlr8q3omm/image/upload/v1692810610/portfolio/projects/mvy7okysp54uai9x9jtm.png",
+      thumbnail: service1,
       github_link: "",
       live_link: "",
     },
@@ -108,8 +107,7 @@ const Projects = () => {
         "The real-time code editoris a web-based platform that allows multiple users to collaboratively write and edit code in real- time.",
       start_date: "20-10-2023",
       end_date: "20-10-2023",
-      thumbnail:
-        "https://res.cloudinary.com/dlr8q3omm/image/upload/v1692810610/portfolio/projects/mvy7okysp54uai9x9jtm.png",
+      thumbnail: service1,
       github_link: "",
       live_link: "",
     },
@@ -141,8 +139,7 @@ const Projects = () => {
         "The real-time code editoris a web-based platform that allows multiple users to collaboratively write and edit code in real- time.",
       start_date: "20-10-2023",
       end_date: "20-10-2023",
-      thumbnail:
-        "https://res.cloudinary.com/dlr8q3omm/image/upload/v1692810610/portfolio/projects/mvy7okysp54uai9x9jtm.png",
+      thumbnail: service1,
       github_link: "",
       live_link: "",
     },
@@ -174,8 +171,7 @@ const Projects = () => {
         "The real-time code editoris a web-based platform that allows multiple users to collaboratively write and edit code in real- time.",
       start_date: "20-10-2023",
       end_date: "20-10-2023",
-      thumbnail:
-        "https://res.cloudinary.com/dlr8q3omm/image/upload/v1692810610/portfolio/projects/mvy7okysp54uai9x9jtm.png",
+      thumbnail: service1,
       github_link: "",
       live_link: "",
     },
@@ -207,27 +203,36 @@ const Projects = () => {
   const settings = {
     infinite: true,
     autoplay: true,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
-    initialSlide: 0,
-    // dots: true,
-    autoplaySpeed: 2000,
-    nextArrow: <CustomNextArrow />,
-    prevArrow: <CustomPrevArrow />,
-    // nextArrow: false,
+    dots: false, // Hide dots
+    arrows: false, // Hide arrows,
+    autoplaySpeed: 3000,
+    // nextArrow: <CustomNextArrow />,
+    // prevArrow: <CustomPrevArrow />,
 
     responsive: [
       {
-        breakpoint: 1200,
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 1150,
         settings: {
           slidesToShow: 2,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 800,
         settings: {
           slidesToShow: 1,
         },
+      },
+      {
+        breakpoint: 550,
+        settings: "unslick",
       },
     ],
   };
@@ -238,9 +243,9 @@ const Projects = () => {
 
         <div className="flex items-center justify-between ">
           <div>
-            <motion.h1 className="font-medium text-3xl lg:text-5xl my-4 sm:my-6 text-white">
+            <h1 className="font-medium text-3xl lg:text-5xl my-4 sm:my-6 text-white">
               My Cases
-            </motion.h1>
+            </h1>
           </div>
 
           <Link
@@ -252,11 +257,13 @@ const Projects = () => {
         </div>
       </div>
 
-      <Slider {...settings}>
-        {eventDetails.map((item, index) => (
-          <Card item={item} key={index} index={index} />
-        ))}
-      </Slider>
+      <div className="mt-12">
+        <Slider {...settings}>
+          {eventDetails.map((item, index) => (
+            <Card item={item} key={index} index={index} />
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };
@@ -265,78 +272,61 @@ const Card = ({ item, index }) => (
   <div
     data-aos="flip-right"
     data-aos-delay={200 * (index + 1)}
-    className="max-w-[800px] mb-6"
+    className="border-4 border-primary_color overflow-hidden transition-all duration-300 sm:mx-4 my-4 sm:my-0 cursor-pointer"
   >
-    <div className="mb-[2.5rem] m-[10px] xl:m-[15px] border-primary_color rounded-sm shadow-lg shadow-primary_color ">
-      <div className="w-full h-[18rem] overflow-hidden relative ">
-        <div to={""} target="blank" className="overflow-hidden h-full p-3">
-          <img
-            src={item.thumbnail}
-            alt={item.name}
-            className="w-[100%] h-[100%] hover:scale-105 transition-all duration-300 ease-linear  rounded-xl"
-          />
-        </div>
-
-        <a
-          href="/"
-          target="blank"
-          className=" absolute top-4 right-4 text-3xl text-primary_color bg-secondary_color p-2 rounded-full border-2 border-primary_color hover:bg-transparent transition-all duration-300"
-        >
-          <BsGithub />
-        </a>
+    <div className="w-full h-[18rem] overflow-hidden relative ">
+      <div to={""} target="blank" className="overflow-hidden h-full ">
+        <img
+          src={item.thumbnail}
+          alt={item.name}
+          className="w-[100%] h-[100%] hover:scale-105 transition-all duration-300 ease-linear"
+        />
       </div>
 
-      <div className=" relative pt-[1rem] pb-[1rem] px-[1rem] ">
-        <h3 className=" font-bold uppercase mb-[1rem] space-y-2 ">
-          <p className=" text-primary_color text-xs font-semibold">
-            {item.category}
-          </p>
-          <Link className=" " to={""}>
-            {item.title}
-          </Link>
-          <div className="flex gap-1 line-clamp-1">
-            {item.tech_stack.length > 0 &&
-              item.tech_stack.map((item, index) => (
-                <span className="text-xs font-normal bg-gray-800 p-1 rounded-lg">
-                  {item}
-                </span>
-              ))}
-          </div>
-        </h3>
+      <a
+        href="/"
+        target="blank"
+        className=" absolute top-4 right-4 text-3xl text-primary_color bg-secondary_color p-2 rounded-full border-2 border-primary_color hover:bg-transparent transition-all duration-300"
+      >
+        <BsGithub />
+      </a>
+    </div>
 
-        <div className="flex mb-[1.2rem]">
-          <p className=" line-clamp-3">{item.description}</p>
+    <div className=" relative pt-[1rem] pb-[1rem] px-[1rem] ">
+      <div
+        className="font-bold mb-[1rem] space-y-4
+       "
+      >
+        <p className=" text-primary_color text-md font-semibold">
+          {item.category}
+        </p>
+
+        <Link className="text-xl uppercase" to={""}>
+          {item.title}
+        </Link>
+
+        <div className="flex gap-1 line-clamp-1 overflow-x-auto">
+          {item.tech_stack.length > 0 &&
+            item.tech_stack.map((item, index) => (
+              <span className="text-sm font-normal bg-gray-800 p-1 rounded-lg">
+                {item}
+              </span>
+            ))}
         </div>
+      </div>
 
-        {/* <div className="w-full flex  items-center justify-between mb-[3rem] relative">
-          <div className="flex  items-center ">
-            <AiOutlineFieldTime className=" text-2xl mr-2" />
-            <div>
-              <p className="uppercase text-xs">Start Date</p>
-              <p className="text-primary_color text-xs">{item.start_date}</p>
-            </div>
-          </div>
+      <div className="flex mb-[1.2rem]">
+        <p className=" line-clamp-3">{item.description}</p>
+      </div>
 
-          <div className="flex items-center">
-            <AiOutlineFieldTime className=" text-2xl mr-2" />
-            <div>
-              <p className="uppercase text-xs">End Date</p>
-              <p className="text-primary_color text-xs">{item.end_date}</p>
-            </div>
-          </div>
-
-          <div className="w-[50%] m-auto bg-primary_color h-[2px] absolute mt-[5rem] left-[50%] translate-x-[-50%] "></div>
-        </div> */}
-
-        <a
-          href={item.live_link}
-          target="blank"
-          className="w-min text-lg flex items-center gap-2 text-white font-medium 
+      <a
+        href={item.live_link}
+        target="blank"
+        className="w-min text-lg flex items-center gap-2 text-white font-medium 
            p-1 rounded-lg border-primary_color hover:text-primary_color hover:border-white transition-all duration-300"
-        >
-          Demo <BsBoxArrowUpRight />
-        </a>
-      </div>
+      >
+        Demo <BsBoxArrowUpRight />
+      </a>
     </div>
   </div>
 );

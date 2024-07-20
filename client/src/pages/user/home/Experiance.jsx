@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 const Experiance = () => {
   const experianceData = [
     {
-      company_name: "OCPL TECH",
+      company_name: "GrowthGear",
       city: "Gurugram",
       state: "Haryana",
       country: "India",
       location: "Remote",
-      position: "Full Stack Developer Intern",
+      position: "Full Stack Developer",
       start_date: "January 2024",
       end_date: "",
       description: [
@@ -51,25 +51,10 @@ const Experiance = () => {
         "Solved 25 + assigned bugs like UI fixes, responsiveness, and API optimization",
       ],
     },
-    {
-      company_name: "Achintya Solutions",
-      city: "",
-      state: "",
-      country: "India",
-      location: "Remote",
-      position: "Mern Developer Intern",
-      start_date: "July 2023",
-      end_date: "October 2023",
-      description: [
-        "Delivered 2 + Web Application using React.js as the front-end, Node.js for the back - end, and MongoDB forthe database.",
-        "Leveraged the power of Node.js and Express.js to establish a resilient and efficient foundation for back - end communication.",
-        "Solved 25 + assigned bugs like UI fixes, responsiveness, and API optimization",
-      ],
-    },
   ];
 
   return (
-    <div className="min-h-[100vh] px-6 md:px-10 py-12 transition-all duration-300 ">
+    <div className=" px-6 md:px-10 py-12 transition-all duration-300 ">
       <div data-aos="fade-down" className="pb-4">
         <div>
           <h3 className="font-[cursive] text-primary_color text-xl">
@@ -100,7 +85,7 @@ const Experiance = () => {
 };
 
 const TimelineItem = ({ experianceData }) => (
-  <div className=" relative w-full ">
+  <div className=" relative w-full mt-12">
     {/* <div className='after:content-[""] after:absolute after:left-[50%] after:bottom-0 after:top-0 after:w-1 after:bg-pink_color'>
       <div className="w-7 h-7 border-2 bg-white rounded-full absolute -bottom-2 left-[49%]  z-10 animate-bounce"></div>
     </div> */}
