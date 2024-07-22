@@ -17,7 +17,7 @@ router.route("/login").post(login);
 router.route("/getuserdetails").get(getUserDetails);
 router
   .route("/updateuserdetails")
-  .get(
+  .post(
     requireAuthentication,
     configureMulterUpload("single", "file"),
     updateUserDetails
