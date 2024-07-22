@@ -216,7 +216,7 @@ const Sidebar = () => {
         {/* Email Button  */}
         <div className=" absolute bottom-6 left-3">
           <Link
-            to={` mailto:${user?.email}` || `mailto:seashishgupta@gmail.com`}
+            to={`mailto:${user?.email}` || `mailto:seashishgupta@gmail.com`}
             className=" text-white  font-semibold tracking-wide bg-primary_color px-3 py-1 border-2 border-primary_color rounded-lg hover:bg-transparent transition-all duration-300"
           >
             Email

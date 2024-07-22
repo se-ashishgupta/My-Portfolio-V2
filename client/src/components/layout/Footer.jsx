@@ -121,7 +121,7 @@ const Footer = () => {
               <img
                 src={logo}
                 alt=""
-                className="h-[5rem] w-[5rem] mb-6 opacity-0 border-2 border-primary_color rounded-full"
+                className="h-[5rem] w-[5rem] mb-6 border-2 border-primary_color rounded-full"
               />
             </Link>
 
