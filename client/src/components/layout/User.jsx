@@ -17,9 +17,15 @@ const User = () => {
   return (
     <div className="md:ml-[6rem] text-white transition-all duration-300">
       <Suspense fallback={<Loading />}>
-        <Sidebar />
-        {homeLoader ? <Loading /> : <Outlet />}
-        <Footer />
+        {homeLoader ? (
+          <Loading />
+        ) : (
+          <>
+            <Sidebar />
+            <Outlet />
+            <Footer />
+          </>
+        )}
       </Suspense>
     </div>
   );
