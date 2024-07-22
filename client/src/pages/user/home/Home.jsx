@@ -9,10 +9,13 @@ import Project from "./Project";
 import Skill from "./Skill";
 import Blog from "./Blog";
 import Services from "./Services";
+import { useSelector } from "react-redux";
 
 import Aos from "aos";
 
 const Home = () => {
+  const { user } = useSelector((state) => state.home);
+
   useEffect(() => {
     Aos.init({});
   }, []);
@@ -44,7 +47,11 @@ const Home = () => {
           <div className="z-10 text-center md:text-left text-white font-bold text-4xl lg:text-5xl xl:text-6xl space-y-2">
             <h1>Hi, I'm</h1>
             <h1>
-              Ashsih <span className=" text-primary_color">Gupta</span>
+              {user.firstName || "Ashish"}{" "}
+              <span className=" text-primary_color">
+                {" "}
+                {user.lastName || "Gupta"}
+              </span>
             </h1>
           </div>
 
@@ -53,7 +60,7 @@ const Home = () => {
             <h1 className=" text-primary_color text-xl">
               <Typewriter
                 options={{
-                  strings: [
+                  strings: user.titles || [
                     "I am a Full Stack Developer",
                     "I am a Creative Programmer",
                     "I am a Software Engineer",
@@ -98,7 +105,9 @@ const Home = () => {
               <p className="text-2xl lg:text-4xl font-bold text-primary_color ">
                 Contact
               </p>
-              <span className="text-lg">gashish4950@gmail.com</span>
+              <span className="text-lg">
+                {user.email || "gashish4950@gmail.com"}
+              </span>
             </div>
           </div>
         </div>
@@ -111,7 +120,11 @@ const Home = () => {
           data-aos-delay="400"
         >
           <div className="w-[25vmax] h-[25vmax] sm:w-[35vmax] sm:h-[35vmax] xl:w-[35vmax] xl:h-[35vmax] rounded-full border-[0.8rem] sm:border-[1.5rem] border-primary_color transition-shadow shadow-2xl shadow-primary_color overflow-hidden animate-pulse">
-            <img src={Logo} alt="" className="h-full w-full" />
+            <img
+              src={user.avatar.url || Logo}
+              alt=""
+              className="h-full w-full"
+            />
           </div>
         </div>
       </div>

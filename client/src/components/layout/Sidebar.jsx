@@ -111,6 +111,7 @@ const Sidebar = () => {
 
   const dispatch = useDispatch();
   const { activeNav } = useSelector((state) => state.miscellaneous);
+  const { user } = useSelector((state) => state.home);
 
   // PhoneView NavItem Handler
   const navItemHandler = (path) => {
@@ -214,9 +215,12 @@ const Sidebar = () => {
 
         {/* Email Button  */}
         <div className=" absolute bottom-6 left-3">
-          <button className=" text-white  font-semibold tracking-wide bg-primary_color px-3 py-1 border-2 border-primary_color rounded-lg hover:bg-transparent transition-all duration-300">
+          <Link
+            to={`mailto:${user.email}` || `mailto:seashishgupta@gmail.com`}
+            className=" text-white  font-semibold tracking-wide bg-primary_color px-3 py-1 border-2 border-primary_color rounded-lg hover:bg-transparent transition-all duration-300"
+          >
             Email
-          </button>
+          </Link>
         </div>
       </div>
 

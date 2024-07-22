@@ -16,11 +16,11 @@ const User = () => {
   }, []);
   return (
     <div className="md:ml-[6rem] text-white transition-all duration-300">
-      <Sidebar />
       <Suspense fallback={<Loading />}>
+        <Sidebar />
         {homeLoader ? <Loading /> : <Outlet />}
+        <Footer />
       </Suspense>
-      <Footer />
     </div>
   );
 };

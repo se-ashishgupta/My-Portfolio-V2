@@ -4,8 +4,10 @@ import { SiMinds } from "react-icons/si";
 import avatar from "../../../assets/images/Logo1.png";
 import { Link } from "react-router-dom";
 import { BsBoxArrowUpRight } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 const About = () => {
+  const { user } = useSelector((state) => state.home);
   const url = window.location.pathname;
 
   return (
@@ -19,7 +21,7 @@ const About = () => {
             </h3>
 
             <h1 className="font-medium text-3xl lg:text-5xl my-6 text-white">
-              Software Developer
+              {user.titles[0].replace("I am a", "") || "Software Developer"}
             </h1>
           </div>
 
@@ -32,8 +34,8 @@ const About = () => {
                   wordSpacing: "1px",
                 }}
               >
-                My Name is Ashish Gupta, I pursuing graduation from Rajkiya
-                Engineering College Sonbhadra with Computer Science And
+                My Name is Ashish Gupta, I have completed my graduation from
+                Rajkiya Engineering College Sonbhadra with Computer Science And
                 Engineering. While here, I learned a lot of skills. I worked
                 hard in my education and now I am ready to apply my knowledge
                 into practice.
@@ -59,7 +61,8 @@ const About = () => {
                 </div>
                 <div>
                   <h1 className="  text-2xl font-medium">
-                    Creative Programmer
+                    {user.titles[1].replace("I am a", "") ||
+                      "Creative Programmer"}
                   </h1>
                   <p className="text-lg text-text_color1 ">
                     "Crafting Code, Weaving Imagination"
@@ -73,7 +76,8 @@ const About = () => {
                 </div>
                 <div>
                   <h1 className="  text-2xl font-medium">
-                    Full Stack Developer
+                    {user.titles[2].replace("I am a", "") ||
+                      "Full Stack Developer"}
                   </h1>
                   <p className="text-lg text-text_color1 break-all">
                     "Specializing in MERN Stack"
@@ -84,8 +88,9 @@ const About = () => {
 
             <div className="p-4 md:p-7 border-l-2 border-primary_color rounded-tl-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-8 sm:gap-4 ">
               <p className=" font-[cursive] text-xl text-text_color1 w-full sm:w-[70%]">
-                “Your mind is your most powerful asset; invest in its growth,
-                and watch your life flourish”
+                {user.thoughts ||
+                  `“Your mind is your most powerful asset; invest in its growth,
+                and watch your life flourish”`}
               </p>
 
               {url === "/about" ? (
