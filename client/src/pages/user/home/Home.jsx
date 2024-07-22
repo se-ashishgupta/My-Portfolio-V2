@@ -11,10 +11,12 @@ import Blog from "./Blog";
 import Services from "./Services";
 
 import Aos from "aos";
+
 const Home = () => {
   useEffect(() => {
     Aos.init({});
   }, []);
+
   return (
     <div className="">
       {/* FrontPage Of Home */}

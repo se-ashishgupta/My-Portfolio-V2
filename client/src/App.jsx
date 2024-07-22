@@ -3,10 +3,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import AnimatedCursor from "react-animated-cursor";
 import AppRoutes from "./routes";
+import { Toaster } from "react-hot-toast";
 
 // Animation Library
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useDispatch } from "react-redux";
+import { getHomeDetailsThunkMiddleware } from "./redux/features/home";
 
 const App = () => {
   useEffect(() => {
@@ -34,6 +37,7 @@ const App = () => {
           border: "3px solid #07a8ad",
         }}
       /> */}
+      <Toaster />
     </Router>
   );
 };

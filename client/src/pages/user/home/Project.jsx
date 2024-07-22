@@ -308,7 +308,10 @@ const Card = ({ item, index }) => (
         <div className="flex gap-1 line-clamp-1 overflow-x-auto">
           {item.tech_stack.length > 0 &&
             item.tech_stack.map((item, index) => (
-              <span className="text-sm font-normal bg-gray-800 p-1 rounded-lg">
+              <span
+                key={index}
+                className="text-sm font-normal bg-gray-800 p-1 rounded-lg"
+              >
                 {item}
               </span>
             ))}

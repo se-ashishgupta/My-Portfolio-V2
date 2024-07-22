@@ -4,23 +4,6 @@ import { Link } from "react-router-dom";
 
 const skills = [
   {
-    category: "Programming",
-    skill: [
-      {
-        name: "C",
-        rating: 5,
-      },
-      {
-        name: "C++",
-        rating: 8,
-      },
-      {
-        name: "JavaScript",
-        rating: 6,
-      },
-    ],
-  },
-  {
     category: "Web",
     skill: [
       {
@@ -62,6 +45,23 @@ const skills = [
       {
         name: "API",
         rating: 7,
+      },
+    ],
+  },
+  {
+    category: "Programming",
+    skill: [
+      {
+        name: "C",
+        rating: 5,
+      },
+      {
+        name: "C++",
+        rating: 8,
+      },
+      {
+        name: "JavaScript",
+        rating: 6,
       },
     ],
   },

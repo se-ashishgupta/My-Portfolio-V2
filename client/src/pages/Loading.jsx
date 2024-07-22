@@ -5,7 +5,7 @@ const Loading = () => {
     <div className="w-full h-[100dvh] flex flex-col items-center justify-center gap-2">
       <svg
         aria-hidden="true"
-        class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600  fill-primary_color"
+        className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600  fill-primary_color"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

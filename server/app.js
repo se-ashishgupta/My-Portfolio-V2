@@ -1,5 +1,4 @@
 import express from "express";
-// ENV file Configration
 import "dotenv/config";
 import ErrorMiddleware from "./middleware/error.js";
 import bodyParser from "body-parser";
@@ -27,12 +26,21 @@ app.use(
 
 //Import Routes
 import user from "./routes/user.js";
+import ErrorHandler from "./utils/errorHandler.js";
 app.use("/api/v1", user);
 
+// Home Route
 app.get("/", (req, res) => {
   res.send(
     `<h1>Welcome, Website is Working on ${process.env.FRONTEND_URL} click <a href=${process.env.FRONTEND_URL}>here</a></h1>`
   );
 });
 
+// This middleware function is designed to handle any requests that don't match any defined routes
+app.use((req, res, next) => {
+  const error = new ErrorHandler("Not Found", 404);
+  next(error);
+});
+
+// Error Middleware
 app.use(ErrorMiddleware);

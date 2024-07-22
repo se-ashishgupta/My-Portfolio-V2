@@ -23,7 +23,6 @@ const schema = new mongoose.Schema(
     mobile: {
       type: Number,
       required: [true, "Please Enter Your Mobile Number"],
-      unique: true,
     },
     password: {
       type: String,
@@ -97,6 +96,9 @@ schema.methods.getJwtToken = function () {
   const user = {
     ...this.toObject(),
   };
+
+  // delete user.password;
+
   return jwt.sign({ user }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE,
   });
