@@ -1,9 +1,7 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
 import User from "../components/layout/User";
-import Admin from "../components/layout/Admin";
-import Dashboard from "../pages/admin/Dashboard";
-import Auth from "../pages/Auth";
+import NotFound from "../pages/NotFound";
 
 const Home = React.lazy(() => import("../pages/user/home/Home"));
 const Blogs = React.lazy(() => import("../pages/user/Blogs"));
@@ -12,7 +10,6 @@ const Projects = React.lazy(() => import("../pages/user/Projects"));
 const Skills = React.lazy(() => import("../pages/user/Skills"));
 const Services = React.lazy(() => import("../pages/user/Services"));
 const About = React.lazy(() => import("../pages/user/about/About"));
-const NotFound = React.lazy(() => import("../pages/NotFound"));
 
 const AppRoutes = () => {
   let element = useRoutes([
@@ -50,20 +47,7 @@ const AppRoutes = () => {
         },
       ],
     },
-    {
-      path: "/auth",
-      element: <Auth />,
-    },
-    {
-      path: "/dashboard",
-      element: <Admin />,
-      children: [
-        {
-          index: true,
-          element: <Dashboard />,
-        },
-      ],
-    },
+
     { path: "*", element: <NotFound /> },
   ]);
   return element;

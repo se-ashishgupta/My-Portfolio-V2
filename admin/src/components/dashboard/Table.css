@@ -1,0 +1,16 @@
+/* styles.css */
+
+.rdt_TableHeader {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.custom-datatable tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #ddd;
+}
+
+.custom-datatable td {
+    padding-left: 8px;
+    padding-right: 8px;
+}
