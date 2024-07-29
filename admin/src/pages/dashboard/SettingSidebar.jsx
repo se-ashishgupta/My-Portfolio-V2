@@ -15,15 +15,13 @@ const SettingSidebar = () => {
   };
 
   return (
-    <div className="h-full dark:bg-[#1f283e] bg-white w-[22rem] px-8 py-10 ">
+    <div className="h-full bg-backPrimary-gradient w-[22rem] px-8 py-10 ">
       {/* Top Header  */}
       <div className=" ">
         <div className=" flex items-center justify-between">
-          <h1 className=" dark:text-text_color1 text-gray-900 text-xl font-bold">
-            OCPL CRM Configurator
-          </h1>
+          <h1 className=" text-white text-xl font-bold">Admin Configurator</h1>
           <figure
-            className=" dark:text-text_color1 text-xl cursor-pointer"
+            className=" text-white text-xl cursor-pointer"
             onClick={closeSettingBarHandler}
           >
             <AiOutlineClose />
@@ -33,40 +31,9 @@ const SettingSidebar = () => {
         <hr className="line-style my-[1.5rem] "></hr>
       </div>
 
-      {/* Switcher For Topbar Fix  */}
-
-      <div className=" flex items-center justify-between py-5">
-        <h1 className=" font-bold dark:text-text_color1 text-[#212b36]">
-          Light / Dark
-        </h1>
-        <label className="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center">
-          <input
-            type="checkbox"
-            checked={themeStatus === "dark"}
-            onChange={() =>
-              dispatch(toggleThemeThunkMiddleware({ themeStatus }))
-            }
-            className="sr-only"
-          />
-          <span
-            className={`slider mx-4 flex h-5 w-[45px] items-center rounded-full  duration-200 ${
-              themeStatus === "dark" ? " bg-gray-900" : "bg-[#CCCCCE]"
-            }`}
-          >
-            <span
-              className={`dot h-6 w-6 border-2 rounded-full bg-white duration-200 ${
-                themeStatus === "dark" ? "translate-x-[22px]" : ""
-              }`}
-            ></span>
-          </span>
-        </label>
-      </div>
-
       {/* Switcher For Light Dark Mode  */}
       <div className=" flex items-center justify-between py-5">
-        <h1 className=" font-bold  dark:text-text_color1 text-[#212b36]">
-          Navbar Fixed
-        </h1>
+        <h1 className=" font-bold  text-white">Navbar Fixed</h1>
         <label className="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center">
           <input
             type="checkbox"
@@ -76,7 +43,7 @@ const SettingSidebar = () => {
           />
           <span
             className={`slider mx-4 flex h-5 w-[45px] items-center rounded-full  duration-200 ${
-              topBarFixed ? "bg-gray-900" : "bg-[#CCCCCE]"
+              topBarFixed ? " bg-primary_color" : "bg-[#CCCCCE]"
             }`}
           >
             <span

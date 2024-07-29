@@ -9,19 +9,19 @@ import Profile from "./profile/Profile";
 import Topbar from "../components/layouts/Topbar";
 import { useMyContext } from "../context/Context";
 import Footer from "../components/layouts/Footer";
-import SettingSidebar from "../components/dashboard/SettingSidebar";
+import SettingSidebar from "./dashboard/SettingSidebar";
 
 const Home = () => {
   const { openSidebar, openSettingSidebar } = useMyContext();
 
   return (
-    <div className="p-4 flex h-screen xl:gap-5 dark:bg-darkBackTeritiary_color  bg-gray-200 overflow-y-auto">
+    <div className="p-4 flex h-screen xl:gap-5 bg-backPrimary-gradient overflow-y-auto">
       {/* Sidebar Layout  */}
       <div className="sticky top-0 left-0 z-20">
         <div
-          className={`absolute h-full xl:sticky w-[15rem] dark:bg-darkBackPrimary_color bg-backPrimary_color rounded-xl overflow-hidden ${
+          className={`absolute h-full xl:sticky w-[15rem] rounded-xl overflow-hidden ${
             openSidebar ? " translate-x-0" : "translate-x-[-110%]"
-          }  xl:translate-x-0 transition-all duration-300`}
+          }  xl:translate-x-0 transition-all duration-300 border border-primary_color shadow-md shadow-primary_color bg-backPrimary-gradient`}
         >
           <Sidebar />
         </div>

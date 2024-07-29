@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Userdashboard from "../../components/dashboard/Userdashboard";
+import Userdashboard from "./Userdashboard";
 import { useMyContext } from "../../context/Context";
 
 const Dashboard = () => {

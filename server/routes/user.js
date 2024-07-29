@@ -14,7 +14,9 @@ router
   .route("/register")
   .post(configureMulterUpload("single", "file"), register);
 router.route("/login").post(login);
-router.route("/getuserdetails").get(getUserDetails);
+import { DashboardStats } from "../models/dashboardStats.js";
+import countSiteVisit from "../middleware/countSiteVisit.js";
+router.route("/getuserdetails").get(countSiteVisit, getUserDetails);
 router
   .route("/updateuserdetails")
   .post(

@@ -6,19 +6,17 @@ import Line2Graph from "./LineChart2";
 import { MdOutlineLibraryBooks } from "react-icons/md";
 import { FaChartBar, FaRupeeSign, FaUserPlus } from "react-icons/fa";
 import { AiOutlineClockCircle } from "react-icons/ai";
-import Table from "../../components/dashboard/Table";
+// import Table from "../../components/dashboard/Table";
 
 const userdashboard = () => {
   return (
-
     <div className="">
-
       {/* Four Box  */}
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 my-10 transition-all duration-300">
         {/* Box 1  */}
-        <div className="relative dark:bg-darkBackPrimary_color bg-white rounded-xl shadow-xl mt-4">
+        <div className="relative border border-primary_color shadow-md shadow-primary_color  rounded-xl mt-4">
           {/* Small box with Icon  */}
-          <div className="absolute left-4 -top-5 bg-black text-white p-6 rounded-xl" >
+          <div className="absolute left-4 -top-5 bg-black text-white p-6 rounded-xl">
             <figure className=" text-2xl">
               <MdOutlineLibraryBooks />
             </figure>
@@ -29,8 +27,8 @@ const userdashboard = () => {
             <div className="row">
               <div>
                 <div className=" text-right">
-                  <p className="text-lg text-gray-400"> Inquiries</p>
-                  <h5 className="font-bold text-3xl text-gray-800">281</h5>
+                  <p className="text-lg text-white"> Inquiries</p>
+                  <h5 className="font-bold text-3xl text-white">281</h5>
                 </div>
                 <hr className="line-style my-[1.5rem]"></hr>
                 <div className=" flex items-center gap-1">
@@ -42,12 +40,11 @@ const userdashboard = () => {
           </div>
         </div>
 
-        {/* Box 2  */}
-        <div className="relative dark:bg-darkBackPrimary_color bg-white rounded-xl shadow-xl mt-4">
+        <div className="relative border border-primary_color shadow-md shadow-primary_color  rounded-xl mt-4">
           {/* Small box with Icon  */}
-          <div className="absolute left-4 -top-5 bg-blue-500 text-white p-6 rounded-xl" >
+          <div className="absolute left-4 -top-5 bg-black text-white p-6 rounded-xl">
             <figure className=" text-2xl">
-              <FaChartBar />
+              <MdOutlineLibraryBooks />
             </figure>
           </div>
 
@@ -56,25 +53,24 @@ const userdashboard = () => {
             <div className="row">
               <div>
                 <div className=" text-right">
-                  <p className="text-lg text-gray-400"> Total Users</p>
-                  <h5 className="font-bold text-3xl text-gray-800">2,300</h5>
+                  <p className="text-lg text-white"> Inquiries</p>
+                  <h5 className="font-bold text-3xl text-white">281</h5>
                 </div>
                 <hr className="line-style my-[1.5rem]"></hr>
                 <div className=" flex items-center gap-1">
-                  <p className=" text-green-600 text-lg font-semibold">+3%</p>
-                  <p className="text-lg text-gray-400"> than last month</p>
+                  <p className=" text-green-600 text-lg font-semibold">+55%</p>
+                  <p className="text-lg text-gray-400"> than last week</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Box 3  */}
-        <div className="relative dark:bg-darkBackPrimary_color bg-white rounded-xl shadow-xl mt-4">
+        <div className="relative border border-primary_color shadow-md shadow-primary_color  rounded-xl mt-4">
           {/* Small box with Icon  */}
-          <div className="absolute left-4 -top-5 bg-green-600 text-white p-6 rounded-xl" >
+          <div className="absolute left-4 -top-5 bg-black text-white p-6 rounded-xl">
             <figure className=" text-2xl">
-              <FaRupeeSign />
+              <MdOutlineLibraryBooks />
             </figure>
           </div>
 
@@ -83,25 +79,24 @@ const userdashboard = () => {
             <div className="row">
               <div>
                 <div className=" text-right">
-                  <p className="text-lg text-gray-400"> Money lead</p>
-                  <h5 className="font-bold text-3xl text-gray-800">34L</h5>
+                  <p className="text-lg text-white"> Inquiries</p>
+                  <h5 className="font-bold text-3xl text-white">281</h5>
                 </div>
                 <hr className="line-style my-[1.5rem]"></hr>
                 <div className=" flex items-center gap-1">
-                  <p className=" text-green-600 text-lg font-semibold">+1%</p>
-                  <p className="text-lg text-gray-400"> than last month</p>
+                  <p className=" text-green-600 text-lg font-semibold">+55%</p>
+                  <p className="text-lg text-gray-400"> than last week</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Box 4  */}
-        <div className="relative dark:bg-darkBackPrimary_color bg-white rounded-xl shadow-xl mt-4">
+        <div className="relative border border-primary_color shadow-md shadow-primary_color  rounded-xl mt-4">
           {/* Small box with Icon  */}
-          <div className="absolute left-4 -top-5 bg-pink-700 text-white p-6 rounded-xl" >
+          <div className="absolute left-4 -top-5 bg-black text-white p-6 rounded-xl">
             <figure className=" text-2xl">
-              <FaUserPlus />
+              <MdOutlineLibraryBooks />
             </figure>
           </div>
 
@@ -110,26 +105,23 @@ const userdashboard = () => {
             <div className="row">
               <div>
                 <div className=" text-right">
-                  <p className="text-lg text-gray-400"> Today's Lead</p>
-                  <h5 className="font-bold text-3xl text-gray-800">91</h5>
+                  <p className="text-lg text-white"> Inquiries</p>
+                  <h5 className="font-bold text-3xl text-white">281</h5>
                 </div>
                 <hr className="line-style my-[1.5rem]"></hr>
                 <div className=" flex items-center gap-1">
-                  <p className=" text-green-600 text-lg font-semibold">+4%</p>
-                  <p className="text-lg text-gray-400"> than yesterday</p>
+                  <p className=" text-green-600 text-lg font-semibold">+55%</p>
+                  <p className="text-lg text-gray-400"> than last week</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
 
-
       {/* Charts  */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 my-24 transition-all duration-300"  >
-
-        <div className="p-1 relative dark:bg-darkBackPrimary_color bg-white rounded-2xl mt-16">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 my-24 transition-all duration-300">
+        <div className="p-1 relative border border-primary_color shadow-md shadow-primary_color rounded-2xl mt-16">
           {/* Chart  */}
           <div className="p-4 shadow-sm">
             <BarGraph />
@@ -143,13 +135,15 @@ const userdashboard = () => {
             </div>
             <hr className="line-style my-[1rem]"></hr>
             <div className=" flex items-center gap-1">
-              <figure className=" text-gray-400"><AiOutlineClockCircle /></figure>
-              <p className=" text-gray-400" > updated one day ago</p>
+              <figure className=" text-gray-400">
+                <AiOutlineClockCircle />
+              </figure>
+              <p className=" text-gray-400"> updated one day ago</p>
             </div>
           </div>
         </div>
 
-        <div className="p-1 relative dark:bg-darkBackPrimary_color bg-white rounded-2xl mt-16">
+        <div className="p-1 relative border border-primary_color shadow-md shadow-primary_color rounded-2xl mt-16">
           {/* Chart  */}
           <div className="p-4 shadow-sm">
             <Line1Graph />
@@ -159,17 +153,22 @@ const userdashboard = () => {
           <div className="px-4 py-5">
             <div className="">
               <p className="font-bold text-gray-800">Monthly Sales</p>
-              <h5 className="text-gray-400"><span className=" font-semibold text-green-600">(-15%)</span> increase in current month.</h5>
+              <h5 className="text-gray-400">
+                <span className=" font-semibold text-green-600">(-15%)</span>{" "}
+                increase in current month.
+              </h5>
             </div>
             <hr className="line-style my-[1rem]"></hr>
             <div className=" flex items-center gap-1">
-              <figure className=" text-gray-400"><AiOutlineClockCircle /></figure>
-              <p className=" text-gray-400" >updated 4 min ago</p>
+              <figure className=" text-gray-400">
+                <AiOutlineClockCircle />
+              </figure>
+              <p className=" text-gray-400">updated 4 min ago</p>
             </div>
           </div>
         </div>
 
-        <div className="p-1 relative dark:bg-darkBackPrimary_color bg-white rounded-2xl mt-16">
+        <div className="p-1 relative border border-primary_color shadow-md shadow-primary_color rounded-2xl mt-16">
           {/* Chart  */}
           <div className="p-4 shadow-sm">
             <Line2Graph />
@@ -179,29 +178,26 @@ const userdashboard = () => {
           <div className="px-4 py-5">
             <div className="">
               <p className="font-bold text-gray-800">Completed Loans</p>
-              <h5 className="text-gray-400"><span className=" font-semibold text-green-600">(-10%)</span> decrease in defaulters.</h5>
+              <h5 className="text-gray-400">
+                <span className=" font-semibold text-green-600">(-10%)</span>{" "}
+                decrease in defaulters.
+              </h5>
             </div>
             <hr className="line-style my-[1rem]"></hr>
             <div className=" flex items-center gap-1">
-              <figure className=" text-gray-400"><AiOutlineClockCircle /></figure>
-              <p className=" text-gray-400" >updated 10 min ago</p>
+              <figure className=" text-gray-400">
+                <AiOutlineClockCircle />
+              </figure>
+              <p className=" text-gray-400">updated 10 min ago</p>
             </div>
           </div>
         </div>
-
       </div>
 
       {/* Table  */}
-      <Table />
-
-
-
+      {/* <Table /> */}
     </div>
-
   );
 };
 
 export default userdashboard;
-
-
-
