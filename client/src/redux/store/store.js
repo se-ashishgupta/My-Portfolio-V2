@@ -6,11 +6,13 @@ import persistStore from "redux-persist/es/persistStore";
 import miscellaneousReducer from "../features/miscellaneous";
 import homeReducer from "../features/home";
 import loaderReducer from "../features/loader";
+import chatBotReducer from "../features/chatBot";
 
 const rootReducer = combineReducers({
   miscellaneous: miscellaneousReducer,
   home: homeReducer,
   loader: loaderReducer,
+  chatBot: chatBotReducer,
 });
 
 const persistConfig = {

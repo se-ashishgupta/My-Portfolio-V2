@@ -12,6 +12,7 @@ import Services from "./Services";
 import { useSelector } from "react-redux";
 
 import Aos from "aos";
+import ChatBot from "../chatBot/ChatBot";
 
 const Home = () => {
   const { user } = useSelector((state) => state.home);
@@ -146,6 +147,9 @@ const Home = () => {
 
       {/* Blog  */}
       <Blog />
+
+      {/* Blog  */}
+      <ChatBot />
     </div>
   );
 };

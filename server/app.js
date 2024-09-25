@@ -26,8 +26,10 @@ app.use(
 
 //Import Routes
 import user from "./routes/user.js";
+import chatBot from "./routes/chat.js";
 import ErrorHandler from "./utils/errorHandler.js";
 app.use("/api/v1", user);
+app.use("/api/v1", chatBot);
 
 // Home Route
 app.get("/", (req, res) => {

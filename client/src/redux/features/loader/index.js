@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   homeLoader: false,
+  chatBotLoader: false,
 };
 
 const loaderSlice = createSlice({
