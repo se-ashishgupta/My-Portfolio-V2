@@ -125,6 +125,7 @@ const Home = () => {
               src={user.avatar.url || Logo}
               alt=""
               className="h-full w-full"
+              loading="lazy"
             />
           </div>
         </div>
