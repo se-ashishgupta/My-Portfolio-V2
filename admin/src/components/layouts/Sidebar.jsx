@@ -1,39 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/Logo.png";
-import {
-  MdDashboard,
-  MdLibraryBooks,
-  MdNotifications,
-  MdOutlineDashboard,
-} from "react-icons/md";
+import { MdDashboard, MdLibraryBooks, MdNotifications } from "react-icons/md";
 import { BiSolidUser, BiSolidUserDetail } from "react-icons/bi";
 import { IoIosClose } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { useMyContext } from "../../context/Context";
+import { useDispatch, useSelector } from "react-redux";
+import { setMiscellaneous } from "../../redux/features/miscellaneous";
 
 const Sidebar = () => {
-  const { setopenSidebar, activeMenu, setActiveMenu } = useMyContext();
+  const dispatch = useDispatch();
+  const { activeNavStatus, sidebarStatus } = useSelector(
+    (state) => state.miscellaneous
+  );
 
   const navItem = [
     {
       title: "Dashboard",
       icon: <MdDashboard />,
-      path: "/",
+      path: "/dashboard",
     },
     {
       title: "Experiance",
       icon: <BiSolidUserDetail />,
-      path: "/clients",
+      path: "/experiance",
     },
     {
       title: "Skills",
       icon: <MdLibraryBooks />,
-      path: "/transaction",
+      path: "/skills",
     },
     {
       title: "Project",
       icon: <MdNotifications />,
-      path: "/notification",
+      path: "/projects",
     },
     {
       title: "Blogs",
@@ -53,8 +52,16 @@ const Sidebar = () => {
   ];
 
   const closeSidebar = () => {
-    setopenSidebar((prev) => !prev);
+    dispatch(setMiscellaneous({ sidebarStatus: !sidebarStatus }));
   };
+
+  useEffect(() => {
+    const currentNavItem = navItem.find(
+      (item) => item.path === activeNavStatus
+    );
+
+    dispatch(setMiscellaneous({ currentNavStatus: currentNavItem?.title }));
+  }, [activeNavStatus]);
 
   return (
     <section>
@@ -84,11 +91,13 @@ const Sidebar = () => {
               key={index}
               to={item.path}
               className={`rounded-lg px-4 py-3 ${
-                activeMenu == item.path
+                activeNavStatus == item.path
                   ? " bg-primary_color"
                   : "hover:bg-gray-500"
               } transition-all duration-200`}
-              onClick={() => setActiveMenu(item.path)}
+              onClick={() =>
+                dispatch(setMiscellaneous({ activeNavStatus: item.path }))
+              }
             >
               <div className=" flex items-center gap-4 ">
                 <figure className="text-2xl">{item.icon}</figure>

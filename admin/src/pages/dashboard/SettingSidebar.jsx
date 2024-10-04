@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { useMyContext } from "../../context/Context";
-import { toggleThemeThunkMiddleware } from "../../redux/features/miscellaneous";
+import {
+  setMiscellaneous,
+  toggleThemeThunkMiddleware,
+} from "../../redux/features/miscellaneous";
 import { useDispatch, useSelector } from "react-redux";
 
 const SettingSidebar = () => {
   const dispatch = useDispatch();
-  const { themeStatus } = useSelector((state) => state.miscellaneous);
-
-  const { setOpenSettingSidebar, topBarFixed, toggleTopbar } = useMyContext();
+  const { themeStatus, topBarFixedStatus } = useSelector(
+    (state) => state.miscellaneous
+  );
 
   const closeSettingBarHandler = () => {
-    setOpenSettingSidebar(false);
+    dispatch(setMiscellaneous({ settingSidebarStatus: false }));
+  };
+  const toggleTopbarHandler = () => {
+    dispatch(setMiscellaneous({ topBarFixedStatus: !topBarFixedStatus }));
   };
 
   return (
@@ -37,18 +42,18 @@ const SettingSidebar = () => {
         <label className="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center">
           <input
             type="checkbox"
-            checked={topBarFixed}
-            onChange={toggleTopbar}
+            checked={topBarFixedStatus}
+            onChange={toggleTopbarHandler}
             className="sr-only"
           />
           <span
             className={`slider mx-4 flex h-5 w-[45px] items-center rounded-full  duration-200 ${
-              topBarFixed ? " bg-primary_color" : "bg-[#CCCCCE]"
+              topBarFixedStatus ? " bg-primary_color" : "bg-[#CCCCCE]"
             }`}
           >
             <span
               className={`dot h-6 w-6 border-2 rounded-full bg-white duration-200 ${
-                topBarFixed ? "translate-x-[22px]" : ""
+                topBarFixedStatus ? "translate-x-[22px]" : ""
               }`}
             ></span>
           </span>

@@ -17,7 +17,7 @@ const persistConfig = {
   key: "root",
   storage,
   // Add any blacklist or whitelist configurations as needed
-  whitelist: ["miscellaneous", "home"],
+  whitelist: [],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

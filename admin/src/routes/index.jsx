@@ -16,7 +16,7 @@ const Routes = () => {
       element: <Navigate to={"/dashboard"} />,
     },
     {
-      path: "/dashboard",
+      path: "/",
       element: (
         <ProtectedRoute isAuthenticated={isAuthenticated} path={"/auth"}>
           <Home />
@@ -24,7 +24,7 @@ const Routes = () => {
       ),
       children: [
         {
-          index: true,
+          path: "dashboard",
           element: <Dashboard />,
         },
         {

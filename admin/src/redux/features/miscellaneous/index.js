@@ -5,7 +5,7 @@ const initialState = {
   currentNavStatus: "Dashboard",
   sidebarStatus: false,
   settingSidebarStatus: false,
-  themeStatus: "light",
+  // themeStatus: "light",
   topBarFixedStatus: false,
 };
 

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useMyContext } from "../../context/Context";
 import "./Userdashboard.css";
 import BarGraph from "./BarChart";
 import Line1Graph from "./LineChart1";
@@ -40,16 +39,10 @@ const statCard = [
 ];
 
 const Dashboard = () => {
-  const { setopenMenu } = useMyContext();
-
-  useEffect(() => {
-    setopenMenu("Dashboard");
-  }, []);
-
   return (
     <div className="">
       {/* Stat Card  */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 my-10 transition-all duration-300">
+      <div className="grid text-white md:grid-cols-2 lg:grid-cols-4 gap-6 my-10 transition-all duration-300">
         {statCard.map((item, index) => (
           <StatCard item={item} key={`Stats-${index}-${item.id}`} />
         ))}

@@ -1,46 +1,51 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiFillHome, AiFillSetting, AiFillBell } from "react-icons/ai";
 import { HiUserCircle } from "react-icons/hi";
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useMyContext } from "../../context/Context";
+import { useDispatch, useSelector } from "react-redux";
+import { setMiscellaneous } from "../../redux/features/miscellaneous";
 
 const Topbar = () => {
+  const dispatch = useDispatch();
   const {
-    openMenu: title,
-    openSidebar,
-    setopenSidebar,
-    setActiveMenu,
-    setOpenSettingSidebar,
-    topBarFixed,
-  } = useMyContext();
+    topBarFixedStatus,
+    settingSidebarStatus,
+    sidebarStatus,
+    currentNavStatus,
+  } = useSelector((state) => state.miscellaneous);
 
   const sidebarHandler = () => {
-    setopenSidebar((prev) => !prev);
+    dispatch(setMiscellaneous({ sidebarStatus: !sidebarStatus }));
   };
 
   const settingSidebarHandler = () => {
-    setOpenSettingSidebar((prev) => !prev);
+    dispatch(setMiscellaneous({ settingSidebarStatus: !settingSidebarStatus }));
   };
 
   return (
     <div
       className={` ${
-        topBarFixed && "sticky"
+        topBarFixedStatus && "sticky"
       } top-0 z-10 rounded-xl h-[4rem] flex items-center justify-between px-4 py-10 mb-4 border-2 border-primary_color bg-backPrimary-gradient`}
     >
       <div className=" ">
-        <div className=" flex items-center gap-2 font-semibold text-text_color1 ">
-          <Link to={"/"} onClick={() => setActiveMenu("/")}>
+        <div className=" flex items-center gap-2 font-semibold text-white ">
+          <Link
+            to={"/"}
+            onClick={() =>
+              dispatch(setMiscellaneous({ activeNavStatus: "/dashboard" }))
+            }
+          >
             <figure>
               <AiFillHome />
             </figure>
           </Link>
           <span>{"/"}</span>
-          <span>{title}</span>
+          <span>{currentNavStatus}</span>
         </div>
 
-        <h1 className="text-text_color1 text-xl font-bold">{title}</h1>
+        <h1 className="text-white text-xl font-bold">{currentNavStatus}</h1>
       </div>
 
       <div className=" flex items-center gap-5 text-2xl text-gray-500">
@@ -48,7 +53,7 @@ const Topbar = () => {
           <AiFillSetting />
         </figure>
         <figure className="xl:hidden cursor-pointer" onClick={sidebarHandler}>
-          {openSidebar ? <AiOutlineMenuFold /> : <AiOutlineMenuUnfold />}
+          {sidebarStatus ? <AiOutlineMenuFold /> : <AiOutlineMenuUnfold />}
         </figure>
         <Link>
           <AiFillBell />
