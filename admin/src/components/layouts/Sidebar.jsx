@@ -21,24 +21,34 @@ const Sidebar = () => {
       path: "/",
     },
     {
-      title: "Clients",
+      title: "Experiance",
       icon: <BiSolidUserDetail />,
       path: "/clients",
     },
     {
-      title: "Transaction",
+      title: "Skills",
       icon: <MdLibraryBooks />,
       path: "/transaction",
     },
     {
-      title: "Notification",
+      title: "Project",
       icon: <MdNotifications />,
       path: "/notification",
+    },
+    {
+      title: "Blogs",
+      icon: <BiSolidUser />,
+      path: "/blogs",
     },
     {
       title: "Profile",
       icon: <BiSolidUser />,
       path: "/profile",
+    },
+    {
+      title: "Query Request",
+      icon: <BiSolidUser />,
+      path: "/query",
     },
   ];
 
@@ -49,11 +59,13 @@ const Sidebar = () => {
   return (
     <section>
       {/* Logo */}
-      <div className="border-b m-6 mb-2 pb-8 px-2 flex items-center justify-between">
+      <div className="border-b border-dotted p-4 flex items-center justify-between">
         {/* Logo with name  */}
         <div className="mr-2 flex items-center gap-1">
           <img src={logo} alt="logo" className="h-8" />
-          <h1 className="text-white font-bold text-sm">OCPL</h1>
+          <h1 className="text-white font-bold text-md text-center">
+            Creative Programmer
+          </h1>
         </div>
         {/* Close Button  */}
         <figure

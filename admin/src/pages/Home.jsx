@@ -1,11 +1,6 @@
 import React from "react";
 import Sidebar from "../components/layouts/Sidebar";
-import { Route, Routes } from "react-router-dom";
-import Dashboard from "./dashboard/Dashboard";
-import Clients from "./clients/Clients";
-import Tansaction from "./transaction/Tansaction";
-import Notification from "./notification/Notification";
-import Profile from "./profile/Profile";
+import { Outlet } from "react-router-dom";
 import Topbar from "../components/layouts/Topbar";
 import { useMyContext } from "../context/Context";
 import Footer from "../components/layouts/Footer";
@@ -15,29 +10,23 @@ const Home = () => {
   const { openSidebar, openSettingSidebar } = useMyContext();
 
   return (
-    <div className="p-4 flex h-screen xl:gap-5 bg-backPrimary-gradient overflow-y-auto">
+    <div className="p-4 flex h-screen xl:gap-5 bg-black ">
       {/* Sidebar Layout  */}
       <div className="sticky top-0 left-0 z-20">
         <div
           className={`absolute h-full xl:sticky w-[15rem] rounded-xl overflow-hidden ${
             openSidebar ? " translate-x-0" : "translate-x-[-110%]"
-          }  xl:translate-x-0 transition-all duration-300 border border-primary_color shadow-md shadow-primary_color bg-backPrimary-gradient`}
+          }  xl:translate-x-0 transition-all duration-300 border-2 border-primary_color bg-backPrimary-gradient`}
         >
           <Sidebar />
         </div>
       </div>
 
       {/* Content Layout  */}
-      <div className="w-full xl:flex-1">
-        <div className="p-2">
+      <div className="w-full xl:flex-1 overflow-y-auto border-2 border-primary_color p-3 rounded-xl">
+        <div className="">
           <Topbar title={"Dashboard"} />
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/clients" element={<Clients />} />
-            <Route path="/transaction" element={<Tansaction />} />
-            <Route path="/notification" element={<Notification />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
+          <Outlet />
           <Footer />
         </div>
       </div>

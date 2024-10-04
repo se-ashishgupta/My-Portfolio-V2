@@ -1,20 +1,16 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  BrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter as Router, BrowserRouter } from "react-router-dom";
+import Routes from "./routes";
 import Home from "./pages/Home";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/*" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <Suspense fallback={<>Loading...</>}>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </Suspense>
   );
 };
 

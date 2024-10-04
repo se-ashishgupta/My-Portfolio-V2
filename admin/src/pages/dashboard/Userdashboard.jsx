@@ -8,115 +8,67 @@ import { FaChartBar, FaRupeeSign, FaUserPlus } from "react-icons/fa";
 import { AiOutlineClockCircle } from "react-icons/ai";
 // import Table from "../../components/dashboard/Table";
 
-const userdashboard = () => {
+const statCard = [
+  {
+    title: "Inquiries",
+    icon: <MdOutlineLibraryBooks />,
+    value: 281,
+    growth: "+55% than last week",
+  },
+  {
+    title: "Inquiries",
+    icon: <MdOutlineLibraryBooks />,
+    value: 281,
+    growth: "+55% than last week",
+  },
+  {
+    title: "Inquiries",
+    icon: <MdOutlineLibraryBooks />,
+    value: 281,
+    growth: "+55% than last week",
+  },
+  {
+    title: "Inquiries",
+    icon: <MdOutlineLibraryBooks />,
+    value: 281,
+    growth: "+55% than last week",
+  },
+];
+
+const UserDashboard = () => {
   return (
     <div className="">
-      {/* Four Box  */}
+      {/* Stat Card  */}
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 my-10 transition-all duration-300">
-        {/* Box 1  */}
-        <div className="relative border border-primary_color shadow-md shadow-primary_color  rounded-xl mt-4">
-          {/* Small box with Icon  */}
-          <div className="absolute left-4 -top-5 bg-black text-white p-6 rounded-xl">
-            <figure className=" text-2xl">
-              <MdOutlineLibraryBooks />
-            </figure>
-          </div>
+        {statCard.map((item, map) => (
+          <div className="relative border border-primary_color shadow-md shadow-primary_color  rounded-xl mt-4">
+            {/* Small box with Icon  */}
+            <div className="absolute left-4 -top-5 bg-black text-white p-6 rounded-xl">
+              <figure className=" text-2xl">
+                <MdOutlineLibraryBooks />
+              </figure>
+            </div>
 
-          {/* Text Data Content  */}
-          <div className="p-2 shadow-sm">
-            <div className="row">
-              <div>
-                <div className=" text-right">
-                  <p className="text-lg text-white"> Inquiries</p>
-                  <h5 className="font-bold text-3xl text-white">281</h5>
-                </div>
-                <hr className="line-style my-[1.5rem]"></hr>
-                <div className=" flex items-center gap-1">
-                  <p className=" text-green-600 text-lg font-semibold">+55%</p>
-                  <p className="text-lg text-gray-400"> than last week</p>
+            {/* Text Data Content  */}
+            <div className="p-2 shadow-sm">
+              <div className="row">
+                <div>
+                  <div className=" text-right">
+                    <p className="text-lg text-white"> Inquiries</p>
+                    <h5 className="font-bold text-3xl text-white">281</h5>
+                  </div>
+                  <hr className="line-style my-[1.5rem]"></hr>
+                  <div className=" flex items-center gap-1">
+                    <p className=" text-green-600 text-lg font-semibold">
+                      +55%
+                    </p>
+                    <p className="text-lg text-gray-400"> than last week</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="relative border border-primary_color shadow-md shadow-primary_color  rounded-xl mt-4">
-          {/* Small box with Icon  */}
-          <div className="absolute left-4 -top-5 bg-black text-white p-6 rounded-xl">
-            <figure className=" text-2xl">
-              <MdOutlineLibraryBooks />
-            </figure>
-          </div>
-
-          {/* Text Data Content  */}
-          <div className="p-2 shadow-sm">
-            <div className="row">
-              <div>
-                <div className=" text-right">
-                  <p className="text-lg text-white"> Inquiries</p>
-                  <h5 className="font-bold text-3xl text-white">281</h5>
-                </div>
-                <hr className="line-style my-[1.5rem]"></hr>
-                <div className=" flex items-center gap-1">
-                  <p className=" text-green-600 text-lg font-semibold">+55%</p>
-                  <p className="text-lg text-gray-400"> than last week</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative border border-primary_color shadow-md shadow-primary_color  rounded-xl mt-4">
-          {/* Small box with Icon  */}
-          <div className="absolute left-4 -top-5 bg-black text-white p-6 rounded-xl">
-            <figure className=" text-2xl">
-              <MdOutlineLibraryBooks />
-            </figure>
-          </div>
-
-          {/* Text Data Content  */}
-          <div className="p-2 shadow-sm">
-            <div className="row">
-              <div>
-                <div className=" text-right">
-                  <p className="text-lg text-white"> Inquiries</p>
-                  <h5 className="font-bold text-3xl text-white">281</h5>
-                </div>
-                <hr className="line-style my-[1.5rem]"></hr>
-                <div className=" flex items-center gap-1">
-                  <p className=" text-green-600 text-lg font-semibold">+55%</p>
-                  <p className="text-lg text-gray-400"> than last week</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative border border-primary_color shadow-md shadow-primary_color  rounded-xl mt-4">
-          {/* Small box with Icon  */}
-          <div className="absolute left-4 -top-5 bg-black text-white p-6 rounded-xl">
-            <figure className=" text-2xl">
-              <MdOutlineLibraryBooks />
-            </figure>
-          </div>
-
-          {/* Text Data Content  */}
-          <div className="p-2 shadow-sm">
-            <div className="row">
-              <div>
-                <div className=" text-right">
-                  <p className="text-lg text-white"> Inquiries</p>
-                  <h5 className="font-bold text-3xl text-white">281</h5>
-                </div>
-                <hr className="line-style my-[1.5rem]"></hr>
-                <div className=" flex items-center gap-1">
-                  <p className=" text-green-600 text-lg font-semibold">+55%</p>
-                  <p className="text-lg text-gray-400"> than last week</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
       {/* Charts  */}
@@ -200,4 +152,4 @@ const userdashboard = () => {
   );
 };
 
-export default userdashboard;
+export default UserDashboard;
