@@ -1,3 +1,120 @@
+# Node.js dependencies
 node_modules
-# Keep environment variables out of version control
+/.pnp
+.pnp.js
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
 .env
+.env.local
+.env.*.local
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Build artifacts
+dist/
+build/
+tmp/
+out/
+*.tsbuildinfo
+
+# Coverage directories
+coverage/
+*.lcov
+*.lcov.info
+
+# Test reports
+test-results/
+test-report.xml
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# TypeScript
+*.tsbuildinfo
+
+# Python virtual environments
+venv/
+__pycache__/
+*.py[cod]
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Miscellaneous
+*.swp
+*.bak
+*.tmp
+*.cache
+*.lock
+
+# Git
+.gitignore
+.git/
+
+# Generated files (like lock files)
+package-lock.json
+yarn.lock
+
+# Ignore all compressed files
+*.zip
+*.tar.gz
+*.rar
+
+# Static analysis tools
+.eslintcache
+eslint-report.html
+stylelint-report.html
+
+# Ignore Next.js build output
+.next/
+
+# Ignore Svelte build output
+.svelte-kit/
+
+# Ignore React Native build output
+.expo/
+android/
+ios/
+
+# Ignore Terraform state and plan files
+*.tfstate
+*.tfstate.*
+*.plan
+
+# Ignore sensitive security and configuration files
+*.pem
+*.key
+*.crt
+*.pfx
+*.config.json
+
+# Ignore Webpack output
+webpack-assets.json
+webpack-config.js
+
+# Ignore generated documentation
+docs/_build/
+docs/api/
+
+# Ignore Visual Studio Code workspace
+.vscode/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
