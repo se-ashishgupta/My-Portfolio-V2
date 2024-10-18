@@ -1,6 +1,7 @@
 import { app } from "./app.js";
-import { connectDB } from "./config/databaseConnection.js";
+import { connectDB } from "./config/db.config.js";
 import cloudinary from "cloudinary";
+import { connectRedis } from "./config/redis.config.js";
 
 const PORT = process.env.PORT || 5000;
 const MODE = process.env.NODE_ENV || "Development";
@@ -8,6 +9,7 @@ const SERVER_SHUTDOWN_TIMEOUT = 10000;
 
 (async () => {
   try {
+    await connectRedis();
     await connectDB();
 
     cloudinary.v2.config({
@@ -20,7 +22,7 @@ const SERVER_SHUTDOWN_TIMEOUT = 10000;
       console.log(`Server is running on PORT ${PORT} in ${MODE} mode.`);
     });
   } catch (error) {
-    console.error("Failed to connect to the database", error);
+    console.error("Failed to start the server", error);
     process.exit(1); // Exit process if DB connection fails
   }
 })();
