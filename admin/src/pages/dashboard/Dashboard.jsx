@@ -42,7 +42,7 @@ const Dashboard = () => {
   return (
     <div className="">
       {/* Stat Card  */}
-      <div className="grid text-white md:grid-cols-2 lg:grid-cols-4 gap-6 my-10 transition-all duration-300">
+      <div className="grid text-text_color1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-10 transition-all duration-300">
         {statCard.map((item, index) => (
           <StatCard item={item} key={`Stats-${index}-${item.id}`} />
         ))}
@@ -60,14 +60,14 @@ const Dashboard = () => {
           <div className="px-4 py-5">
             <div className="">
               <p className="font-bold text-gray-800">Daily Repays</p>
-              <h5 className="text-gray-400">Numbers are in lakhs</h5>
+              <h5 className="text-text_color2">Numbers are in lakhs</h5>
             </div>
             <hr className="line-style my-[1rem]"></hr>
             <div className=" flex items-center gap-1">
-              <figure className=" text-gray-400">
+              <figure className=" text-text_color2">
                 <AiOutlineClockCircle />
               </figure>
-              <p className=" text-gray-400"> updated one day ago</p>
+              <p className=" text-text_color2"> updated one day ago</p>
             </div>
           </div>
         </div>
@@ -82,17 +82,17 @@ const Dashboard = () => {
           <div className="px-4 py-5">
             <div className="">
               <p className="font-bold text-gray-800">Monthly Sales</p>
-              <h5 className="text-gray-400">
+              <h5 className="text-text_color2">
                 <span className=" font-semibold text-green-600">(-15%)</span>{" "}
                 increase in current month.
               </h5>
             </div>
             <hr className="line-style my-[1rem]"></hr>
             <div className=" flex items-center gap-1">
-              <figure className=" text-gray-400">
+              <figure className=" text-text_color2">
                 <AiOutlineClockCircle />
               </figure>
-              <p className=" text-gray-400">updated 4 min ago</p>
+              <p className=" text-text_color2">updated 4 min ago</p>
             </div>
           </div>
         </div>
@@ -107,17 +107,17 @@ const Dashboard = () => {
           <div className="px-4 py-5">
             <div className="">
               <p className="font-bold text-gray-800">Completed Loans</p>
-              <h5 className="text-gray-400">
+              <h5 className="text-text_color2">
                 <span className=" font-semibold text-green-600">(-10%)</span>{" "}
                 decrease in defaulters.
               </h5>
             </div>
             <hr className="line-style my-[1rem]"></hr>
             <div className=" flex items-center gap-1">
-              <figure className=" text-gray-400">
+              <figure className=" text-text_color2">
                 <AiOutlineClockCircle />
               </figure>
-              <p className=" text-gray-400">updated 10 min ago</p>
+              <p className=" text-text_color2">updated 10 min ago</p>
             </div>
           </div>
         </div>

@@ -12,6 +12,9 @@ export default {
         primary_color: "#07a8ad",
         secondary_color: "#16181f",
 
+        text_color1: "#ffffff",
+        text_color2: "#9ca3af",
+
         // backPrimary_color: "#1f2937", // black white
         darkBackPrimary_color: "#1f283e", // black white
         backsecondary_color: "#f8fafc", // White

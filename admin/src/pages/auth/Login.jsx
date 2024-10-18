@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import InputField from "../../components/common/Fields/InputField";
+import HandlerButton from "../../components/common/Button/HandlerButton";
 
 const Login = () => {
   const {
@@ -12,17 +13,18 @@ const Login = () => {
   });
   return (
     <div className="h-[100dvh] bg-backPrimary-gradient grid place-items-center">
-      <div className=" w-[30%] h-[50%] border-2 border-primary_color shadow-xl  rounded-xl p-3">
-        <h1 className=" text-2xl text_color1 text-center font-bold py-4 px-2">
-          Welcome Admin
+      <div className="w-[90%] md:w-[70%] lg:w-[45%] xl:w-[30%] border-2 border-primary_color shadow-xl  rounded-xl px-6 py-12">
+        <h1 className=" text-3xl text-text_color1 text-center font-bold px-2 pb-8">
+          Log In To Admin
         </h1>
-        <div>
+        <form className=" space-y-3 md:space-y-6">
           <InputField
             control={control}
             name="email"
             errors={errors}
             label="Work Email Address"
             placeholder="Enter your email"
+            disabled={false}
           />
           <InputField
             control={control}
@@ -33,7 +35,10 @@ const Login = () => {
             label="Password"
             placeholder="Enter your password"
           />
-        </div>
+          <div className="pt-4">
+            <HandlerButton text="Log In" type="submit" width="w-full" />
+          </div>
+        </form>
       </div>
     </div>
   );

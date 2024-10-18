@@ -68,9 +68,9 @@ const ChatBot = () => {
       </div>
 
       <div
-        className={` h-[50dvh] w-[40vh] bg-white bottom-4  ${
-          open ? "right-4" : " -right-[100%]"
-        } fixed z-40 rounded-lg p-2 transition-all duration-300 text-black flex flex-col gap-3`}
+        className={` h-full w-full md:h-[60dvh] md:w-[48dvh] bg-white bottom-0 md:bottom-4  ${
+          open ? "md:right-4" : " -right-[100%]"
+        } fixed z-40 md:rounded-lg p-2 transition-all duration-300 text-black flex flex-col gap-3`}
       >
         {/* Close Button  */}
         <div className="text-black flex w-full flex-row-reverse ">

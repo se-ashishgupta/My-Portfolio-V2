@@ -34,12 +34,9 @@ export const sendMessageThunkMiddleware = ({ messages, message }) => {
         question: message.content,
       });
 
-      console.log(response.data);
-
       if (response.status === 200) {
         let { content, role } = response.data.reply;
         content = content.replace("**", "");
-
         dispatch(
           setChatBot({ messages: [...messages, message, { role, content }] })
         );

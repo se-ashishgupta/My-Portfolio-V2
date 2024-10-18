@@ -8,7 +8,7 @@ const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
 const Profile = lazy(() => import("../pages/profile/Profile"));
 
 const Routes = () => {
-  const isAuthenticated = true;
+  const isAuthenticated = false;
 
   const route = useRoutes([
     {

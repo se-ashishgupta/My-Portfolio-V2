@@ -61,7 +61,7 @@ const Home = () => {
             <h1 className=" text-primary_color text-xl">
               <Typewriter
                 options={{
-                  strings: user.titles || [
+                  strings: user.titles.map((item) => item.title) || [
                     "I am a Full Stack Developer",
                     "I am a Creative Programmer",
                     "I am a Software Engineer",
@@ -76,7 +76,7 @@ const Home = () => {
           {/* Buttons  */}
           <div className="my-4 flex flex-col md:flex-row gap-10 text-xl font-semibold">
             <Link
-              to={`mailto:gashish4950@gmail.com`}
+              to={`mailto:${user.email || "seashishgupta@gmail.com"}`}
               className=" bg-primary_color px-4 py-2 border-2 border-primary_color hover:bg-transparent transition-all duration-300 rounded-l-lg rounded-br-lg"
             >
               HIRE ME
@@ -107,7 +107,7 @@ const Home = () => {
                 Contact
               </p>
               <span className="text-lg">
-                {user.email || "gashish4950@gmail.com"}
+                {user.email || "seashishgupta@gmail.com"}
               </span>
             </div>
           </div>

@@ -27,18 +27,18 @@ export const getHomeDetailsThunkMiddleware = () => {
   return async (dispatch) => {
     try {
       dispatch(setLoader({ homeLoader: true }));
-      const response = await axios.get(`${URI}/getportfolio`);
+      const response = await axios.get(`${URI}/getuserdetails`);
 
       if (response.status === 200) {
-        const { poftfolio } = response.data;
-        dispatch(setHome({ user: poftfolio }));
+        const { user } = response.data;
+        console.log(user);
+        dispatch(setHome({ user }));
         dispatch(setLoader({ homeLoader: false }));
       }
     } catch (error) {
       let message = "ERROR";
       if (error.hasOwnProperty("response")) {
         message = error.response.data.message;
-        message = "Something went wrong, Please refress the page!";
       }
       toast.error(message);
     }

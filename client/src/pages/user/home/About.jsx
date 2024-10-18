@@ -21,7 +21,8 @@ const About = () => {
             </h3>
 
             <h1 className="font-medium text-3xl lg:text-5xl my-6 text-white">
-              {user.titles[0].replace("I am a", "") || "Software Developer"}
+              {user?.titles[0]?.title.replace("I am a", "") ||
+                "Software Developer"}
             </h1>
           </div>
 
@@ -61,7 +62,7 @@ const About = () => {
                 </div>
                 <div>
                   <h1 className="  text-2xl font-medium">
-                    {user.titles[1].replace("I am a", "") ||
+                    {user.titles[1].title.replace("I am a", "") ||
                       "Creative Programmer"}
                   </h1>
                   <p className="text-lg text-text_color1 ">
@@ -76,7 +77,7 @@ const About = () => {
                 </div>
                 <div>
                   <h1 className="  text-2xl font-medium">
-                    {user.titles[2].replace("I am a", "") ||
+                    {user.titles[2].title.replace("I am a", "") ||
                       "Full Stack Developer"}
                   </h1>
                   <p className="text-lg text-text_color1 break-all">
@@ -120,7 +121,7 @@ const About = () => {
         >
           <div className="mx-auto w-[100%] lg:w-[65%]   h-[100%] md:h-full  rounded-l-[3rem] border-[1rem] border-primary_color shadow-2xl shadow-primary_color">
             <img
-              src={avatar}
+              src={user.avatar.url || avatar}
               alt="about us"
               className="rounded-l-[3rem] w-full h-full "
             />

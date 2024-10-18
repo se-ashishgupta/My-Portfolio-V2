@@ -28,7 +28,7 @@ const InputField = memo((props) => {
         defaultValue={initialValue || ""}
         render={({ field: { onChange, value, onBlur, ref } }) => (
           <div className="">
-            <label htmlFor={name} className="font-semibold text_color1">
+            <label htmlFor={name} className="font-semibold text-text_color1">
               {label}
             </label>
             <div
@@ -63,8 +63,8 @@ const InputField = memo((props) => {
                 onBlur={onBlur}
                 error={errors[name] ? errors[name] : null}
                 className={`${
-                  disabled && "text-[#9ca3af]"
-                } w-full bg-transparent  font-medium  focus:outline-none p-2 px-3 placeholder:text-sm placeholder:text-[#808080]`}
+                  disabled ? "text-[#9ca3af]" : "text-text_color1"
+                } w-full  bg-transparent focus:outline-none p-2 px-3 placeholder:text-sm placeholder:text-text_color2`}
               />
               {isPassword && (
                 <div

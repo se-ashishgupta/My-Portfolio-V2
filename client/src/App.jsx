@@ -10,6 +10,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useDispatch } from "react-redux";
 import { getHomeDetailsThunkMiddleware } from "./redux/features/home";
+import { useScroll } from "framer-motion";
 
 const App = () => {
   useEffect(() => {

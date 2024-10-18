@@ -24,21 +24,23 @@ const SettingSidebar = () => {
       {/* Top Header  */}
       <div className=" ">
         <div className=" flex items-center justify-between">
-          <h1 className=" text-white text-xl font-bold">Admin Configurator</h1>
+          <h1 className=" text-text_color1 text-xl font-bold">
+            Admin Configurator
+          </h1>
           <figure
-            className=" text-white text-xl cursor-pointer"
+            className=" text-text_color1 text-xl cursor-pointer"
             onClick={closeSettingBarHandler}
           >
             <AiOutlineClose />
           </figure>
         </div>
-        <p className=" text-gray-500 text-lg">See our dashboard options.</p>
+        <p className=" text-text_color2 text-lg">See our dashboard options.</p>
         <hr className="line-style my-[1.5rem] "></hr>
       </div>
 
       {/* Switcher For Light Dark Mode  */}
       <div className=" flex items-center justify-between py-5">
-        <h1 className=" font-bold  text-white">Navbar Fixed</h1>
+        <h1 className=" font-bold  text-text_color1">Navbar Fixed</h1>
         <label className="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center">
           <input
             type="checkbox"

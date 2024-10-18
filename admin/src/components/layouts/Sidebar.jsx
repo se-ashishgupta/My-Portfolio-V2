@@ -70,7 +70,7 @@ const Sidebar = () => {
         {/* Logo with name  */}
         <div className="mr-2 flex items-center gap-1">
           <img src={logo} alt="logo" className="h-8" />
-          <h1 className="text-white font-bold text-md text-center">
+          <h1 className="text-text_color1 font-bold text-md text-center">
             Creative Programmer
           </h1>
         </div>
@@ -85,7 +85,7 @@ const Sidebar = () => {
 
       {/* NavItem  */}
       <div className="p-4">
-        <nav className=" text-white flex flex-col gap-1">
+        <nav className=" text-text_color1 flex flex-col gap-1">
           {navItem.map((item, index) => (
             <Link
               key={index}
