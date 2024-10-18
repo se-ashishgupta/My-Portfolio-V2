@@ -30,7 +30,7 @@ export const sendMessageThunkMiddleware = ({ messages, message }) => {
       dispatch(setLoader({ chatBotLoader: true }));
       dispatch(setChatBot({ messages: [...messages, message] }));
 
-      const response = await axios.post(`${URI}/chat`, {
+      const response = await axios.post(`${URI}/chatbot`, {
         question: message.content,
       });
 
