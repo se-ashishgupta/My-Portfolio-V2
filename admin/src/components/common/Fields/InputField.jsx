@@ -31,11 +31,7 @@ const InputField = memo((props) => {
             <label htmlFor={name} className="font-semibold text-text_color1">
               {label}
             </label>
-            <div
-              className={`border ${
-                disabled ? "border-gray-600" : "border-gray-400"
-              }  rounded-md relative mt-2`}
-            >
+            <div className={`relative mt-2`}>
               <input
                 ref={ref}
                 id={name}
@@ -62,13 +58,11 @@ const InputField = memo((props) => {
                 }}
                 onBlur={onBlur}
                 error={errors[name] ? errors[name] : null}
-                className={`${
-                  disabled ? "text-[#9ca3af]" : "text-text_color1"
-                } w-full  bg-transparent focus:outline-none p-2 px-3 placeholder:text-sm placeholder:text-text_color2`}
+                className={`disabled:text-gray-400 text-text_color1 w-full  bg-transparent focus:outline-none rounded-md border-2 border-gray-400 disabled:border-gray-600 focus:border-primary_color  p-2 px-3 placeholder:text-sm placeholder:text-text_color`}
               />
               {isPassword && (
                 <div
-                  className="absolute grid w-5 h-5 place-items-center text-blue-gray-500 top-2/4 right-3 -translate-y-2/4 cursor-pointer"
+                  className="absolute grid w-5 h-5 place-items-center focus:outline-none text-blue-gray-500 top-2/4 right-3 -translate-y-2/4 cursor-pointer"
                   onClick={() => setIsPasswordVisible((prev) => !prev)}
                 >
                   {isPasswordVisible ? (

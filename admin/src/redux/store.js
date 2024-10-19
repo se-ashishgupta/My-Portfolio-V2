@@ -6,11 +6,13 @@ import persistStore from "redux-persist/es/persistStore";
 import miscellaneousReducer from "./features/miscellaneous";
 import homeReducer from "./features/home";
 import loaderReducer from "./features/loader";
+import authReducer from "./features/auth";
 
 const rootReducer = combineReducers({
   miscellaneous: miscellaneousReducer,
   home: homeReducer,
   loader: loaderReducer,
+  auth: authReducer,
 });
 
 const persistConfig = {

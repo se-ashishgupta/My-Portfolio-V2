@@ -78,8 +78,6 @@ export const login = catchAsyncError(async (req, res, next) => {
     },
   });
 
-  console.log(existingUser);
-
   if (!existingUser) {
     return next(
       new ErrorHandler("User Not Exist, Please register first.", 400)
@@ -93,4 +91,11 @@ export const login = catchAsyncError(async (req, res, next) => {
   }
 
   sendToken(res, existingUser, "LogedIn Successfully", 200);
+});
+
+export const protectedAuth = catchAsyncError(async (req, res, next) => {
+  res.status(200).json({
+    success: true,
+    message: "You are authenticated",
+  });
 });
