@@ -7,12 +7,14 @@ import miscellaneousReducer from "./features/miscellaneous";
 import homeReducer from "./features/home";
 import loaderReducer from "./features/loader";
 import authReducer from "./features/auth";
+import profileReducer from "./features/profile";
 
 const rootReducer = combineReducers({
   miscellaneous: miscellaneousReducer,
   home: homeReducer,
   loader: loaderReducer,
   auth: authReducer,
+  profile: profileReducer,
 });
 
 const persistConfig = {

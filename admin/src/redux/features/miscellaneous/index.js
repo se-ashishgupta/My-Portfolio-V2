@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  activeNavStatus: window.location.pathname,
+  activeNavStatus: "/dashboard",
   currentNavStatus: "Dashboard",
   sidebarStatus: false,
   settingSidebarStatus: false,

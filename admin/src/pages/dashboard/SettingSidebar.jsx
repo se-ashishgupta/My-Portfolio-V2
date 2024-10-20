@@ -5,18 +5,24 @@ import {
   toggleThemeThunkMiddleware,
 } from "../../redux/features/miscellaneous";
 import { useDispatch, useSelector } from "react-redux";
+import { IoLogOut } from "react-icons/io5";
+import { clearMemoryThunkMiddleware } from "../../redux/features/auth";
+import toast from "react-hot-toast";
 
 const SettingSidebar = () => {
   const dispatch = useDispatch();
-  const { themeStatus, topBarFixedStatus } = useSelector(
-    (state) => state.miscellaneous
-  );
+  const { topBarFixedStatus } = useSelector((state) => state.miscellaneous);
 
   const closeSettingBarHandler = () => {
     dispatch(setMiscellaneous({ settingSidebarStatus: false }));
   };
   const toggleTopbarHandler = () => {
     dispatch(setMiscellaneous({ topBarFixedStatus: !topBarFixedStatus }));
+  };
+
+  const logoutHandler = () => {
+    dispatch(clearMemoryThunkMiddleware());
+    toast.success("Logged Out Successfully!");
   };
 
   return (
@@ -34,7 +40,7 @@ const SettingSidebar = () => {
             <AiOutlineClose />
           </figure>
         </div>
-        <p className=" text-text_color2 text-lg">See our dashboard options.</p>
+        <p className=" text-text_color2 text-lg">See dashboard options.</p>
         <hr className="line-style my-[1.5rem] "></hr>
       </div>
 
@@ -61,6 +67,15 @@ const SettingSidebar = () => {
           </span>
         </label>
       </div>
+
+      <button
+        type="button"
+        className="text-text_color1 w-fit px-4 py-1 rounded-md bg-primary_color cursor-pointer flex items-center gap-3"
+        onClick={logoutHandler}
+      >
+        <IoLogOut size={26} />
+        Logout
+      </button>
     </div>
   );
 };

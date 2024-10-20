@@ -115,7 +115,7 @@ export const clearMemoryThunkMiddleware = () => {
 export const checkIsUserAuthenticatedThunkMiddleware = () => {
   return async (dispatch) => {
     try {
-      dispatch(setLoader({ loader: true }));
+      dispatch(setLoader({ isAuthenticatdloader: true }));
       const token = getItemFromStore("creativeProgrammer");
       if (token) {
         await axiosInstance.get("/protected");
@@ -127,7 +127,7 @@ export const checkIsUserAuthenticatedThunkMiddleware = () => {
     } catch (error) {
       dispatch(clearMemoryThunkMiddleware());
     } finally {
-      dispatch(setLoader({ loader: false }));
+      dispatch(setLoader({ isAuthenticatdloader: false }));
     }
   };
 };

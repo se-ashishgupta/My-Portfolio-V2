@@ -60,7 +60,12 @@ const Topbar = () => {
         <Link>
           <AiFillBell />
         </Link>
-        <Link>
+        <Link
+          to={"/profile"}
+          onClick={() =>
+            dispatch(setMiscellaneous({ activeNavStatus: "/profile" }))
+          }
+        >
           <HiUserCircle />
         </Link>
       </div>

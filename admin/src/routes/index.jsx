@@ -3,6 +3,7 @@ import { Navigate, useRoutes } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import { useDispatch, useSelector } from "react-redux";
 import { checkIsUserAuthenticatedThunkMiddleware } from "../redux/features/auth";
+import Loader from "../components/layouts/loader/Loader";
 
 const Login = lazy(() => import("../pages/auth/Login"));
 const Home = lazy(() => import("../pages/Home"));
@@ -14,6 +15,7 @@ const Routes = () => {
   const dispatch = useDispatch();
 
   const { isAuthenticated, token } = useSelector((state) => state.auth);
+  const { isAuthenticatdloader } = useSelector((state) => state.loader);
 
   const route = useRoutes([
     {
@@ -57,7 +59,7 @@ const Routes = () => {
     dispatch(checkIsUserAuthenticatedThunkMiddleware());
   }, [isAuthenticated, token, dispatch]);
 
-  return route;
+  return isAuthenticatdloader ? <Loader /> : route;
 };
 
 export default Routes;
