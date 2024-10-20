@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRoutes } from "react-router-dom";
 import User from "../components/layout/User";
 import NotFound from "../pages/NotFound";
+import { useDispatch, useSelector } from "react-redux";
+import { getHomeDetailsThunkMiddleware } from "../redux/features/home";
+import Loader from "../components/layout/loader/Loader";
 
 const Home = React.lazy(() => import("../pages/user/home/Home"));
 const Blogs = React.lazy(() => import("../pages/user/Blogs"));
@@ -12,6 +15,14 @@ const Services = React.lazy(() => import("../pages/user/Services"));
 const About = React.lazy(() => import("../pages/user/about/About"));
 
 const AppRoutes = () => {
+  const dispatch = useDispatch();
+
+  const { homeLoader } = useSelector((state) => state.loader);
+
+  useEffect(() => {
+    dispatch(getHomeDetailsThunkMiddleware());
+  }, [dispatch]);
+
   let element = useRoutes([
     {
       path: "/",
@@ -50,7 +61,8 @@ const AppRoutes = () => {
 
     { path: "*", element: <NotFound /> },
   ]);
-  return element;
+
+  return homeLoader ? <Loader /> : element;
 };
 
 export default AppRoutes;

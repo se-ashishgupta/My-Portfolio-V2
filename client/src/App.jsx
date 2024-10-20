@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import AnimatedCursor from "react-animated-cursor";
@@ -11,6 +11,7 @@ import "aos/dist/aos.css";
 import { useDispatch } from "react-redux";
 import { getHomeDetailsThunkMiddleware } from "./redux/features/home";
 import { useScroll } from "framer-motion";
+import Loader from "./components/layout/loader/Loader";
 
 const App = () => {
   useEffect(() => {
@@ -21,7 +22,9 @@ const App = () => {
 
   return (
     <Router>
-      <AppRoutes />
+      <Suspense fallback={<Loader />}>
+        <AppRoutes />
+      </Suspense>
 
       {/* <AnimatedCursor
         innerSize={8}
