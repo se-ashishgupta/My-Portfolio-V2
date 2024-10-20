@@ -13,7 +13,7 @@ export const registerSchema = Yup.object({
     .min(6, "Password must be at least 6 characters")
     .required("Password is required"),
   file: Yup.mixed()
-    .required("File is required")
+    .required("Profile Image is required")
     .test(
       "fileType",
       "Unsupported file format, only JPG, PNG, GIF are allowed",
