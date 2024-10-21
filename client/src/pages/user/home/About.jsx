@@ -62,7 +62,8 @@ const About = () => {
                 </div>
                 <div>
                   <h1 className="  text-2xl font-medium">
-                    {user.titles[1].title.replace("I am a", "") ||
+                    {(user?.titles &&
+                      user?.titles[1]?.title.replace("I am a", "")) ||
                       "Creative Programmer"}
                   </h1>
                   <p className="text-lg text-text_color1 ">
@@ -77,7 +78,8 @@ const About = () => {
                 </div>
                 <div>
                   <h1 className="  text-2xl font-medium">
-                    {user.titles[2].title.replace("I am a", "") ||
+                    {(user?.titles &&
+                      user?.titles[2]?.title.replace("I am a", "")) ||
                       "Full Stack Developer"}
                   </h1>
                   <p className="text-lg text-text_color1 break-all">
@@ -89,7 +91,7 @@ const About = () => {
 
             <div className="p-4 md:p-7 border-l-2 border-primary_color rounded-tl-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-8 sm:gap-4 ">
               <p className=" font-[cursive] text-xl text-text_color1 w-full sm:w-[70%]">
-                {user.thoughts ||
+                {user?.thoughts ||
                   `“Your mind is your most powerful asset; invest in its growth,
                 and watch your life flourish”`}
               </p>
@@ -121,7 +123,7 @@ const About = () => {
         >
           <div className="mx-auto w-[100%] lg:w-[65%]   h-[100%] md:h-full  rounded-l-[3rem] border-[1rem] border-primary_color shadow-2xl shadow-primary_color">
             <img
-              src={user.avatar.url || avatar}
+              src={user?.avatar?.url || avatar}
               alt="about us"
               className="rounded-l-[3rem] w-full h-full "
             />

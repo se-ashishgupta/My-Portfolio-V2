@@ -5,7 +5,7 @@ import { setLoader } from "../loader";
 
 const URI = import.meta.env.VITE_SERVER_URL;
 const initialState = {
-  user: null,
+  user: {},
 };
 
 const homeSlice = createSlice({

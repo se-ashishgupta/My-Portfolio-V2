@@ -48,10 +48,10 @@ const Home = () => {
           <div className="z-10 text-center md:text-left text-white font-bold text-4xl lg:text-5xl xl:text-6xl space-y-2">
             <h1>Hi, I'm</h1>
             <h1>
-              {user.firstName || "Ashish"}{" "}
+              {user?.firstName || "Ashish"}{" "}
               <span className=" text-primary_color">
                 {" "}
-                {user.lastName || "Gupta"}
+                {user?.lastName || "Gupta"}
               </span>
             </h1>
           </div>
@@ -61,7 +61,7 @@ const Home = () => {
             <h1 className=" text-primary_color text-xl">
               <Typewriter
                 options={{
-                  strings: user.titles.map((item) => item.title) || [
+                  strings: user?.titles?.map((item) => item.title) || [
                     "I am a Full Stack Developer",
                     "I am a Creative Programmer",
                     "I am a Software Engineer",
@@ -76,7 +76,7 @@ const Home = () => {
           {/* Buttons  */}
           <div className="my-4 flex flex-col md:flex-row gap-10 text-xl font-semibold">
             <Link
-              to={`mailto:${user.email || "seashishgupta@gmail.com"}`}
+              to={`mailto:${user?.email || "seashishgupta@gmail.com"}`}
               className=" bg-primary_color px-4 py-2 border-2 border-primary_color hover:bg-transparent transition-all duration-300 rounded-l-lg rounded-br-lg"
             >
               HIRE ME
@@ -107,7 +107,7 @@ const Home = () => {
                 Contact
               </p>
               <span className="text-lg">
-                {user.email || "seashishgupta@gmail.com"}
+                {user?.email || "seashishgupta@gmail.com"}
               </span>
             </div>
           </div>
@@ -122,7 +122,7 @@ const Home = () => {
         >
           <div className="w-[25vmax] h-[25vmax] sm:w-[35vmax] sm:h-[35vmax] xl:w-[35vmax] xl:h-[35vmax] rounded-full border-[0.8rem] sm:border-[1.5rem] border-primary_color transition-shadow shadow-2xl shadow-primary_color overflow-hidden animate-pulse">
             <img
-              src={user.avatar.url || Logo}
+              src={user?.avatar?.url || Logo}
               alt=""
               className="h-full w-full"
               loading="lazy"
