@@ -75,3 +75,27 @@ export const updateProfileThunkMiddleware = (payload) => {
     }
   };
 };
+
+export const deleteProfileThunkMiddleware = (payload) => {
+  return async (dispatch) => {
+    try {
+      dispatch(setLoader({ profileLoader: true }));
+
+      const response = await axiosInstance.delete(`/admin/deleteavatar`);
+
+      if (response.status === 200) {
+        const { message } = response.data;
+        await dispatch(getGeneralInfoThunkMiddleware());
+        toast.success(message);
+      }
+    } catch (error) {
+      let message = "ERROR";
+      if (error.hasOwnProperty("response")) {
+        message = error.response.data.message;
+      }
+      toast.error(message);
+    } finally {
+      dispatch(setLoader({ profileLoader: false }));
+    }
+  };
+};

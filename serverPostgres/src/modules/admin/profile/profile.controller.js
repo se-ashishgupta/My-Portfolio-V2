@@ -33,24 +33,27 @@ export const updateAvatar = catchAsyncError(async (req, res, next) => {
 
   const avatar = await prisma.avatar.findFirst({
     where: {
-      id: id,
+      userId: id,
     },
   });
 
-  await cloudinary.v2.uploader.destroy(avatar.publicId);
+  if (avatar) await cloudinary.v2.uploader.destroy(avatar.publicId);
 
   const fileUri = getDataUri(file);
-  console.log(fileUri);
-
   const myCloud = await cloudinary.v2.uploader.upload(fileUri.content, {
     folder: `PortfolioV2/avatar`,
   });
 
-  await prisma.avatar.update({
+  await prisma.avatar.upsert({
     where: {
-      id: id,
+      userId: id,
     },
-    data: {
+    update: {
+      publicId: myCloud.public_id,
+      url: myCloud.secure_url,
+    },
+    create: {
+      userId: id, // Include the id if it's part of the creation data
       publicId: myCloud.public_id,
       url: myCloud.secure_url,
     },
@@ -59,5 +62,29 @@ export const updateAvatar = catchAsyncError(async (req, res, next) => {
   res.status(200).json({
     success: true,
     message: "Profile Image Updated Successfully!",
+  });
+});
+
+export const deleteAvatar = catchAsyncError(async (req, res, next) => {
+  const { id } = req.user;
+
+  const avatar = await prisma.avatar.findFirst({
+    where: {
+      userId: id,
+    },
+  });
+
+  if (avatar) {
+    await cloudinary.v2.uploader.destroy(avatar.publicId);
+    await prisma.avatar.delete({
+      where: {
+        userId: id,
+      },
+    });
+  }
+
+  res.status(200).json({
+    success: true,
+    message: "Profile Image Deleted Successfully!",
   });
 });

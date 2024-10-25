@@ -6,9 +6,11 @@ import InputField from "../../components/common/Fields/InputField";
 import { MdOutlineDeleteSweep, MdOutlineFileUpload } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deleteProfileThunkMiddleware,
   getGeneralInfoThunkMiddleware,
   updateProfileThunkMiddleware,
 } from "../../redux/features/profile";
+import TextAreaField from "../../components/common/Fields/TextAreaField";
 
 const General = () => {
   const dispatch = useDispatch();
@@ -25,6 +27,8 @@ const General = () => {
       lastName: generalInfo?.lastName || "",
       email: generalInfo?.email || "",
       mobile: generalInfo?.mobile || "",
+      about: generalInfo?.about || "",
+      thought: generalInfo?.thought || "",
     },
   });
 
@@ -34,6 +38,10 @@ const General = () => {
     formData.append("file", file);
 
     dispatch(updateProfileThunkMiddleware(formData));
+  };
+
+  const handleProfileDelete = (e) => {
+    dispatch(deleteProfileThunkMiddleware());
   };
 
   return (
@@ -46,7 +54,7 @@ const General = () => {
           loading="lazy"
         />
         <div className=" flex items-center gap-4">
-          <figure className="cursor-pointer">
+          <figure onClick={handleProfileDelete} className="cursor-pointer">
             <MdOutlineDeleteSweep className=" text-red-500" size={34} />
           </figure>
 
@@ -99,6 +107,22 @@ const General = () => {
             errors={errors}
             label="Mobile"
             placeholder="Enter your mobile"
+            disabled={false}
+          />
+          <TextAreaField
+            control={control}
+            name="about"
+            errors={errors}
+            label="About"
+            placeholder="Enter your about"
+            disabled={false}
+          />
+          <TextAreaField
+            control={control}
+            name="thought"
+            errors={errors}
+            label="Thought"
+            placeholder="Enter your thought"
             disabled={false}
           />
         </form>
