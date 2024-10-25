@@ -6,7 +6,7 @@ const initialState = {
   sidebarStatus: false,
   settingSidebarStatus: false,
   // themeStatus: "light",
-  topBarFixedStatus: false,
+  topBarFixedStatus: true,
 };
 
 const miscellaneousSlice = createSlice({

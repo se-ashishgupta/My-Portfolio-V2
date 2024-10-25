@@ -22,6 +22,7 @@ export const getPortfolio = catchAsyncError(async (req, res, next) => {
     },
     include: {
       avatar: true,
+      address: true,
       titles: true,
       socialLinks: true,
     },

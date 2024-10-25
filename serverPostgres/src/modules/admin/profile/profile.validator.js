@@ -46,3 +46,11 @@ export const avatarSchema = Yup.object({
       return value.size <= 2 * 1024 * 1024; // 2MB
     }),
 });
+
+export const addressSchema = Yup.object({
+  street: Yup.string(),
+  city: Yup.string(),
+  state: Yup.string(),
+  postalCode: Yup.string(),
+  country: Yup.string(),
+});

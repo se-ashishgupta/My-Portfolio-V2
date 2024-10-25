@@ -53,7 +53,7 @@ export const updateProfileThunkMiddleware = (payload) => {
       dispatch(setLoader({ profileLoader: true }));
       console.log(payload);
 
-      const response = await axiosInstance.put(`/admin/updateavatar`, payload, {
+      const response = await axiosInstance.put(`/admin/avatar`, payload, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -81,7 +81,7 @@ export const deleteProfileThunkMiddleware = (payload) => {
     try {
       dispatch(setLoader({ profileLoader: true }));
 
-      const response = await axiosInstance.delete(`/admin/deleteavatar`);
+      const response = await axiosInstance.delete(`/admin/avatar`);
 
       if (response.status === 200) {
         const { message } = response.data;

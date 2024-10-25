@@ -22,20 +22,18 @@ const Home = () => {
         <div
           className={`absolute h-full xl:sticky w-[15rem] rounded-xl overflow-hidden ${
             sidebarStatus ? " translate-x-0" : "translate-x-[-110%]"
-          }  xl:translate-x-0 transition-all duration-300 border-2 border-primary_color bg-backPrimary-gradient`}
+          }  xl:translate-x-0 transition-all duration-300 bg-backPrimary-gradient`}
         >
           <Sidebar />
         </div>
       </div>
       {/* Content Layout  */}
-      <div className="w-full h-full xl:flex-1 overflow-y-auto border-2 border-primary_color p-3 rounded-xl">
-        <div className="h-full flex flex-col">
-          <Topbar />
-          <div className=" flex-1">
-            <Outlet />
-          </div>
-          <Footer />
+      <div className="w-full h-full xl:flex-1 flex flex-col overflow-y-auto">
+        <Topbar />
+        <div className=" flex-1 p-3">
+          <Outlet />
         </div>
+        <Footer />
       </div>
       {/* Setting SideNavbar  */}
       <div
