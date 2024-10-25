@@ -109,7 +109,6 @@ const Address = () => {
               label="Country"
               placeholder="Enter your country"
               disabled={!editStatus}
-              type="number"
             />
           </div>
         </form>
