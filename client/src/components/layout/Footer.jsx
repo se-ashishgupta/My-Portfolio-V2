@@ -112,7 +112,7 @@ const Footer = () => {
 
   return (
     <div className="w-full  bg-black">
-      <div className="w-full px-5 lg:px-[4rem] xl:px-[8rem] pt-20 pb-10 flex flex-col gap-10  ">
+      <div className="w-full px-5 lg:px-[4rem] xl:p`x-[8rem] pt-20 pb-10 flex flex-col gap-10  ">
         {/* Footer Content  */}
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-[rem]">
           {/* Logo And Social Media Accounts */}

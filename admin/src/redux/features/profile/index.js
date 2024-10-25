@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 
 const initialState = {
   generalInfo: null,
+  address: null,
 };
 
 const axiosInstance = createAxiosInstance();
@@ -34,6 +35,32 @@ export const getGeneralInfoThunkMiddleware = () => {
       if (response.status === 200) {
         const { generalInfo } = response.data;
         dispatch(setProfile({ generalInfo }));
+      }
+    } catch (error) {
+      let message = "ERROR";
+      if (error.hasOwnProperty("response")) {
+        message = error.response.data.message;
+      }
+      toast.error(message);
+    } finally {
+      dispatch(setLoader({ profileLoader: false }));
+    }
+  };
+};
+
+export const updateGeneralInfoThunkMiddleware = (payload, callback) => {
+  return async (dispatch) => {
+    try {
+      dispatch(setLoader({ profileLoader: true }));
+      console.log(payload);
+
+      const response = await axiosInstance.put(`/admin/generalinfo`, payload);
+
+      if (response.status === 200) {
+        const { message } = response.data;
+        await dispatch(getGeneralInfoThunkMiddleware());
+        toast.success(message);
+        callback(null);
       }
     } catch (error) {
       let message = "ERROR";
@@ -87,6 +114,54 @@ export const deleteProfileThunkMiddleware = (payload) => {
         const { message } = response.data;
         await dispatch(getGeneralInfoThunkMiddleware());
         toast.success(message);
+      }
+    } catch (error) {
+      let message = "ERROR";
+      if (error.hasOwnProperty("response")) {
+        message = error.response.data.message;
+      }
+      toast.error(message);
+    } finally {
+      dispatch(setLoader({ profileLoader: false }));
+    }
+  };
+};
+
+export const getAddressThunkMiddleware = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(setLoader({ profileLoader: true }));
+
+      const response = await axiosInstance.get(`/admin/address`);
+
+      if (response.status === 200) {
+        const { address } = response.data;
+        dispatch(setProfile({ address }));
+      }
+    } catch (error) {
+      let message = "ERROR";
+      if (error.hasOwnProperty("response")) {
+        message = error.response.data.message;
+      }
+      toast.error(message);
+    } finally {
+      dispatch(setLoader({ profileLoader: false }));
+    }
+  };
+};
+
+export const updateAddressThunkMiddleware = (payload, callback) => {
+  return async (dispatch) => {
+    try {
+      dispatch(setLoader({ profileLoader: true }));
+
+      const response = await axiosInstance.put(`/admin/address`, payload);
+
+      if (response.status === 200) {
+        const { message } = response.data;
+        await dispatch(getAddressThunkMiddleware());
+        toast.success(message);
+        callback(null);
       }
     } catch (error) {
       let message = "ERROR";

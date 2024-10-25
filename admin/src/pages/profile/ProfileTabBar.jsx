@@ -21,7 +21,8 @@ const ProfileTabSidebar = ({ profileTab, setProfileTab }) => {
             onClick={() => setProfileTab(tab.title)}
             key={index}
             className={`font-semibold ${
-              profileTab === tab.title && "border-b-2 border-primary_color"
+              profileTab === tab.title &&
+              "border-b-[3.5px] border-primary_color"
             }  cursor-pointer pb-2`}
           >
             {tab.title}

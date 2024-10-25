@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form";
 import InputField from "../../components/common/Fields/InputField";
 import HandlerButton from "../../components/common/Button/HandlerButton";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { authSchema } from "../../constant/validation";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginThunkMiddleware } from "../../redux/features/auth";
+import { authSchema } from "../../validation/authValidation";
 
 const Login = () => {
   const {

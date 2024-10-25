@@ -27,7 +27,7 @@ const Topbar = () => {
     <div
       className={` ${
         topBarFixedStatus && "sticky top-0 left-0"
-      }  z-10 rounded-xl h-[4rem] flex items-center justify-between px-4 py-10 mb-4 bg-backPrimary-gradient`}
+      }  z-10 rounded-xl h-[4rem] flex items-center justify-between px-4 py-10  bg-backPrimary-gradient`}
     >
       <div className=" ">
         <div className=" flex items-center gap-2 font-semibold text-text_color1 ">

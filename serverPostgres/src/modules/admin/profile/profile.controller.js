@@ -2,7 +2,11 @@ import { catchAsyncError } from "../../../middlewares/catchAsyncError.js";
 import { prisma } from "../../../prisma/client.js";
 import { redisClient } from "../../../config/redis.config.js";
 import cloudinary from "cloudinary";
-import { addressSchema, avatarSchema } from "./profile.validator.js";
+import {
+  addressSchema,
+  avatarSchema,
+  generalInfoSchema,
+} from "./profile.validator.js";
 import getDataUri from "../../../utils/dataUri.utils.js";
 
 export const getGeneralInfo = catchAsyncError(async (req, res, next) => {
@@ -28,35 +32,37 @@ export const getGeneralInfo = catchAsyncError(async (req, res, next) => {
 export const updateGeneralInfo = catchAsyncError(async (req, res, next) => {
   const { id } = req.user;
 
-  const { street, city, state, postalCode, country } = req.body;
-  console.log(req.body);
+  const { firstName, lastName, email, mobile, about, thought, experience } =
+    req.body;
 
-  await addressSchema.validate({ street, city, state, postalCode, country });
+  await generalInfoSchema.validate({
+    firstName,
+    lastName,
+    email,
+    mobile,
+    about,
+    thought,
+    experience,
+  });
 
-  await prisma.address.upsert({
+  await prisma.user.update({
     where: {
-      userId: id,
+      id: id,
     },
-    update: {
-      street,
-      city,
-      state,
-      postalCode,
-      country,
-    },
-    create: {
-      userId: id, // Include the id if it's part of the creation data
-      street,
-      city,
-      state,
-      postalCode,
-      country,
+    data: {
+      firstName,
+      lastName,
+      email,
+      mobile,
+      about,
+      thought,
+      experience,
     },
   });
 
   res.status(200).json({
     success: true,
-    message: "Address Updated Successfully!",
+    message: "General Info Updated Successfully!",
   });
 });
 
@@ -139,6 +145,53 @@ export const getAddress = catchAsyncError(async (req, res, next) => {
 });
 
 export const updateAddress = catchAsyncError(async (req, res, next) => {
+  const { id } = req.user;
+  const { street, city, state, postalCode, country } = req.body;
+
+  await addressSchema.validate({ street, city, state, postalCode, country });
+
+  await prisma.address.upsert({
+    where: {
+      userId: id,
+    },
+    update: {
+      street,
+      city,
+      state,
+      postalCode,
+      country,
+    },
+    create: {
+      userId: id, // Include the id if it's part of the creation data
+      street,
+      city,
+      state,
+      postalCode,
+      country,
+    },
+  });
+
+  res.status(200).json({
+    success: true,
+    message: "Address Updated Successfully!",
+  });
+});
+
+export const getSocialLinks = catchAsyncError(async (req, res, next) => {
+  const { id } = req.user;
+  const address = await prisma.address.findFirst({
+    where: {
+      userId: id,
+    },
+  });
+
+  res.status(200).json({
+    success: true,
+    address,
+  });
+});
+
+export const updateSocialLinks = catchAsyncError(async (req, res, next) => {
   const { id } = req.user;
   const { street, city, state, postalCode, country } = req.body;
 

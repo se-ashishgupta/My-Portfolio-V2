@@ -28,9 +28,9 @@ const Home = () => {
         </div>
       </div>
       {/* Content Layout  */}
-      <div className="w-full h-full xl:flex-1 flex flex-col overflow-y-auto">
+      <div className="w-full h-full xl:flex-1 flex flex-col gap-3 overflow-y-auto ">
         <Topbar />
-        <div className=" flex-1 p-3">
+        <div className=" flex-1 py-0 px-3">
           <Outlet />
         </div>
         <Footer />

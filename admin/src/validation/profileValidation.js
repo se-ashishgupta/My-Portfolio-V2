@@ -14,24 +14,6 @@ export const generalInfoSchema = Yup.object({
   experience: Yup.number(),
 });
 
-export const avatarSchema = Yup.object({
-  file: Yup.mixed()
-    .required("Profile Image is required")
-    .test(
-      "fileType",
-      "Unsupported file format, only JPG, PNG, GIF are allowed",
-      (value) => {
-        if (!value) return false; // If no file is provided, it fails the validation.
-        const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
-        return allowedTypes.includes(value.mimetype);
-      }
-    )
-    .test("fileSize", "File size must be less than 2MB", (value) => {
-      if (!value) return false; // If no file is provided, it fails the validation.
-      return value.size <= 2 * 1024 * 1024; // 2MB
-    }),
-});
-
 export const addressSchema = Yup.object({
   street: Yup.string(),
   city: Yup.string(),

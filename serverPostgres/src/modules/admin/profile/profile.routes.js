@@ -13,7 +13,7 @@ import configureMulterUpload from "../../../middlewares/multer.middleware.js";
 const router = express.Router();
 
 router
-  .route("/generalInfo")
+  .route("/generalinfo")
   .get(authMiddleware, getGeneralInfo)
   .put(authMiddleware, updateGeneralInfo);
 

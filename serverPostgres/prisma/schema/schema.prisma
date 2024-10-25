@@ -73,11 +73,11 @@ model SocialLinks {
 
 model Address {
   id         Int      @id @default(autoincrement())
-  street     String
-  city       String
-  state      String
-  postalCode String
-  country    String
+  street     String?
+  city       String?
+  state      String?
+  postalCode String?
+  country    String?
   user       User     @relation(fields: [userId], references: [id])
   userId     Int      @unique
   createdAt  DateTime @default(now())

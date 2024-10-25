@@ -9,9 +9,9 @@ const HandlerButton = ({
 }) => {
   return (
     <button
-      className={`text-lg font-semibold text-text_color1 rounded-md px-4 py-1.5 bg-primary_color ${width} ${
-        disabled || (loading && "bg-opacity-70")
-      }`}
+      className={`font-semibold text-text_color1 rounded-md px-4 py-1.5 bg-primary_color ${width} ${
+        (disabled || loading) && "opacity-60"
+      } cursor-pointer`}
       type={type}
       disabled={disabled || loading}
     >

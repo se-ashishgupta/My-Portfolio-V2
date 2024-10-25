@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
-import ProfileTabSidebar from "./ProfileTabSidebar";
+import ProfileTabSidebar from "./ProfileTabBar";
 import General from "./General";
 import { useDispatch, useSelector } from "react-redux";
-import { getGeneralInfoThunkMiddleware } from "../../redux/features/profile";
+import {
+  getAddressThunkMiddleware,
+  getGeneralInfoThunkMiddleware,
+} from "../../redux/features/profile";
 import ScaleLoading from "../../components/layouts/loader/ScaleLoading";
+import Address from "./Address";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -13,22 +17,25 @@ const Profile = () => {
   useEffect(() => {
     if (profileTab === "General Info")
       dispatch(getGeneralInfoThunkMiddleware());
+    else if (profileTab === "Address") dispatch(getAddressThunkMiddleware());
   }, [dispatch, profileTab]);
+
   return (
-    <div className=" space-y-4 h-full flex-col">
-      <div className="p-2">
-        <ProfileTabSidebar
-          profileTab={profileTab}
-          setProfileTab={setProfileTab}
-        />
-      </div>
+    <div className="h-full flex flex-col gap-4">
+      <ProfileTabSidebar
+        profileTab={profileTab}
+        setProfileTab={setProfileTab}
+      />
 
       {profileLoader ? (
         <div className="grid place-items-center h-full">
           <ScaleLoading />
         </div>
       ) : (
-        <>{profileTab === "General Info" && <General />}</>
+        <>
+          {profileTab === "General Info" && <General />}
+          {profileTab === "Address" && <Address />}
+        </>
       )}
     </div>
   );
