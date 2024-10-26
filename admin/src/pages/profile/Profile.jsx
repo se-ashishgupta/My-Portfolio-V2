@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getAddressThunkMiddleware,
   getGeneralInfoThunkMiddleware,
+  getSocialLinksThunkMiddleware,
 } from "../../redux/features/profile";
 import ScaleLoading from "../../components/layouts/loader/ScaleLoading";
 import Address from "./Address";
+import SocialMedia from "./SocialMedia";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -15,26 +17,31 @@ const Profile = () => {
   const { profileLoader } = useSelector((state) => state.loader);
 
   useEffect(() => {
-    if (profileTab === "General Info")
+    if (profileTab === "General Info") {
       dispatch(getGeneralInfoThunkMiddleware());
-    else if (profileTab === "Address") dispatch(getAddressThunkMiddleware());
+    } else if (profileTab === "Address") {
+      dispatch(getAddressThunkMiddleware());
+    } else if (profileTab === "Social Media") {
+      dispatch(getSocialLinksThunkMiddleware());
+    }
   }, [dispatch, profileTab]);
 
   return (
     <div className="h-full flex flex-col gap-4">
-      <ProfileTabSidebar
-        profileTab={profileTab}
-        setProfileTab={setProfileTab}
-      />
-
       {profileLoader ? (
         <div className="grid place-items-center h-full">
           <ScaleLoading />
         </div>
       ) : (
         <>
+          <ProfileTabSidebar
+            profileTab={profileTab}
+            setProfileTab={setProfileTab}
+          />
+
           {profileTab === "General Info" && <General />}
           {profileTab === "Address" && <Address />}
+          {profileTab === "Social Media" && <SocialMedia />}
         </>
       )}
     </div>

@@ -3,9 +3,11 @@ import {
   deleteAvatar,
   getAddress,
   getGeneralInfo,
+  getSocialLinks,
   updateAddress,
   updateAvatar,
   updateGeneralInfo,
+  updateSocialLinks,
 } from "./profile.controller.js";
 import { authMiddleware } from "../../../middlewares/auth.middleware.js";
 import configureMulterUpload from "../../../middlewares/multer.middleware.js";
@@ -26,5 +28,10 @@ router
   .route("/address")
   .get(authMiddleware, getAddress)
   .put(authMiddleware, updateAddress);
+
+router
+  .route("/sociallinks")
+  .get(authMiddleware, getSocialLinks)
+  .put(authMiddleware, updateSocialLinks);
 
 export default router;

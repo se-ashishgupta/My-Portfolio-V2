@@ -6,6 +6,7 @@ import {
   addressSchema,
   avatarSchema,
   generalInfoSchema,
+  socialLinksSchema,
 } from "./profile.validator.js";
 import getDataUri from "../../../utils/dataUri.utils.js";
 
@@ -179,7 +180,8 @@ export const updateAddress = catchAsyncError(async (req, res, next) => {
 
 export const getSocialLinks = catchAsyncError(async (req, res, next) => {
   const { id } = req.user;
-  const address = await prisma.address.findFirst({
+
+  const socialLinks = await prisma.socialLinks.findFirst({
     where: {
       userId: id,
     },
@@ -187,39 +189,48 @@ export const getSocialLinks = catchAsyncError(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    address,
+    socialLinks,
   });
 });
 
 export const updateSocialLinks = catchAsyncError(async (req, res, next) => {
   const { id } = req.user;
-  const { street, city, state, postalCode, country } = req.body;
+  const { linkedin, github, facebook, twitter, instagram, youtube } = req.body;
 
-  await addressSchema.validate({ street, city, state, postalCode, country });
+  await socialLinksSchema.validate({
+    linkedin,
+    github,
+    facebook,
+    twitter,
+    instagram,
+    youtube,
+  });
 
-  await prisma.address.upsert({
+  await prisma.socialLinks.upsert({
     where: {
       userId: id,
     },
     update: {
-      street: street || "",
-      city: city || "",
-      state: state || "",
-      postalCode: postalCode || "",
-      country: country || "",
+      linkedin,
+      github,
+      facebook,
+      twitter,
+      instagram,
+      youtube,
     },
     create: {
       userId: id, // Include the id if it's part of the creation data
-      street,
-      city,
-      state,
-      postalCode,
-      country,
+      linkedin,
+      github,
+      facebook,
+      twitter,
+      instagram,
+      youtube,
     },
   });
 
   res.status(200).json({
     success: true,
-    message: "Address Updated Successfully!",
+    message: "Social Links Updated Successfully!",
   });
 });

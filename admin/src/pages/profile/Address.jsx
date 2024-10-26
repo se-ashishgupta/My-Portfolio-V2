@@ -3,12 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import InputField from "../../components/common/Fields/InputField";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteProfileThunkMiddleware,
-  updateAddressThunkMiddleware,
-  updateGeneralInfoThunkMiddleware,
-  updateProfileThunkMiddleware,
-} from "../../redux/features/profile";
+import { updateAddressThunkMiddleware } from "../../redux/features/profile";
 import TextAreaField from "../../components/common/Fields/TextAreaField";
 import HandlerButton from "../../components/common/Button/HandlerButton";
 import { addressSchema } from "../../validation/profileValidation";

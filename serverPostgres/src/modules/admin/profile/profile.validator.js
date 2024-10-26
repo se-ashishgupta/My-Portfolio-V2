@@ -39,3 +39,12 @@ export const addressSchema = Yup.object({
   postalCode: Yup.string(),
   country: Yup.string(),
 });
+
+export const socialLinksSchema = Yup.object({
+  linkedin: Yup.string().url("URL is not valid"),
+  github: Yup.string().url("URL is not valid"),
+  facebook: Yup.string().url("URL is not valid"),
+  twitter: Yup.string().url("URL is not valid"),
+  instagram: Yup.string().url("URL is not valid"),
+  youtube: Yup.string().url("URL is not valid"),
+});

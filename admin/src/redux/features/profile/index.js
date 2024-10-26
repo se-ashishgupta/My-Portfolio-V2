@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 const initialState = {
   generalInfo: null,
   address: null,
+  socialLinks: null,
 };
 
 const axiosInstance = createAxiosInstance();
@@ -160,6 +161,54 @@ export const updateAddressThunkMiddleware = (payload, callback) => {
       if (response.status === 200) {
         const { message } = response.data;
         await dispatch(getAddressThunkMiddleware());
+        toast.success(message);
+        callback(null);
+      }
+    } catch (error) {
+      let message = "ERROR";
+      if (error.hasOwnProperty("response")) {
+        message = error.response.data.message;
+      }
+      toast.error(message);
+    } finally {
+      dispatch(setLoader({ profileLoader: false }));
+    }
+  };
+};
+
+export const getSocialLinksThunkMiddleware = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(setLoader({ profileLoader: true }));
+
+      const response = await axiosInstance.get(`/admin/sociallinks`);
+
+      if (response.status === 200) {
+        const { socialLinks } = response.data;
+        dispatch(setProfile({ socialLinks }));
+      }
+    } catch (error) {
+      let message = "ERROR";
+      if (error.hasOwnProperty("response")) {
+        message = error.response.data.message;
+      }
+      toast.error(message);
+    } finally {
+      dispatch(setLoader({ profileLoader: false }));
+    }
+  };
+};
+
+export const updateSocialLinksThunkMiddleware = (payload, callback) => {
+  return async (dispatch) => {
+    try {
+      dispatch(setLoader({ profileLoader: true }));
+
+      const response = await axiosInstance.put(`/admin/sociallinks`, payload);
+
+      if (response.status === 200) {
+        const { message } = response.data;
+        await dispatch(getSocialLinksThunkMiddleware());
         toast.success(message);
         callback(null);
       }

@@ -5,8 +5,9 @@ const initialState = {
   currentNavStatus: "Dashboard",
   sidebarStatus: false,
   settingSidebarStatus: false,
-  // themeStatus: "light",
   topBarFixedStatus: true,
+
+  profileEditStatus: false,
 };
 
 const miscellaneousSlice = createSlice({

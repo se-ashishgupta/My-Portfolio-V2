@@ -9,7 +9,7 @@ const ProfileTabSidebar = ({ profileTab, setProfileTab }) => {
       title: "Address",
     },
     {
-      title: "About",
+      title: "Social Media",
     },
   ];
 

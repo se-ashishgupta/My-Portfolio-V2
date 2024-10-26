@@ -59,12 +59,12 @@ model Titles {
 
 model SocialLinks {
   id        Int      @id @default(autoincrement())
-  linkedin  String
-  github    String
-  facebook  String
-  twitter   String
-  instagram String
-  youtube   String
+  linkedin  String?
+  github    String?
+  facebook  String?
+  twitter   String?
+  instagram String?
+  youtube   String?
   userId    Int      @unique
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
