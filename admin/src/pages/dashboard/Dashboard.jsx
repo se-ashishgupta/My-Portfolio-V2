@@ -7,38 +7,49 @@ import { MdOutlineLibraryBooks } from "react-icons/md";
 import { FaChartBar, FaRupeeSign, FaUserPlus } from "react-icons/fa";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import StatCard from "./StatCard";
-const statCard = [
-  {
-    id: "123",
-    title: "Inquiries",
-    icon: <MdOutlineLibraryBooks />,
-    value: 281,
-    growth: "+55% than last week",
-  },
-  {
-    id: "1234",
-    title: "Inquiries",
-    icon: <MdOutlineLibraryBooks />,
-    value: 281,
-    growth: "+55% than last week",
-  },
-  {
-    id: "12345",
-    title: "Inquiries",
-    icon: <MdOutlineLibraryBooks />,
-    value: 281,
-    growth: "+55% than last week",
-  },
-  {
-    id: "123456",
-    title: "Inquiries",
-    icon: <MdOutlineLibraryBooks />,
-    value: 281,
-    growth: "+55% than last week",
-  },
-];
+import { useDispatch, useSelector } from "react-redux";
+import { getDashboardStatsThunkMiddleware } from "../../redux/features/dashboard";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  const { dashboardLoader } = useSelector((state) => state.loader);
+  const { dashboardStats } = useSelector((state) => state.dashboard);
+
+  useEffect(() => {
+    dispatch(getDashboardStatsThunkMiddleware());
+  }, []);
+
+  const statCard = [
+    {
+      id: "123",
+      title: "Views",
+      icon: <MdOutlineLibraryBooks />,
+      value: dashboardStats?.views || 0,
+      growth: "+55% than last week",
+    },
+    {
+      id: "1234",
+      title: "Visitors Count",
+      icon: <MdOutlineLibraryBooks />,
+      value: dashboardStats?.visitorsCount || 0,
+      growth: "+55% than last week",
+    },
+    {
+      id: "12345",
+      title: "Inquiries",
+      icon: <MdOutlineLibraryBooks />,
+      value: 281,
+      growth: "+55% than last week",
+    },
+    {
+      id: "123456",
+      title: "Inquiries",
+      icon: <MdOutlineLibraryBooks />,
+      value: 281,
+      growth: "+55% than last week",
+    },
+  ];
+
   return (
     <div className="">
       {/* Stat Card  */}

@@ -16,8 +16,10 @@ const StatCard = ({ item }) => {
         <div className="row">
           <div>
             <div className=" text-right">
-              <p className="text-lg text-text_color1"> Inquiries</p>
-              <h5 className="font-bold text-3xl text-text_color1">281</h5>
+              <p className="text-lg text-text_color1"> {item.title}</p>
+              <h5 className="font-bold text-3xl text-text_color1">
+                {item.value}
+              </h5>
             </div>
             <hr className="line-style my-[1.5rem]"></hr>
             <div className=" flex items-center gap-1">

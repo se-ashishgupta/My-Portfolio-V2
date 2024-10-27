@@ -8,6 +8,7 @@ import homeReducer from "./features/home";
 import loaderReducer from "./features/loader";
 import authReducer from "./features/auth";
 import profileReducer from "./features/profile";
+import dashboardReducer from "./features/dashboard";
 
 const rootReducer = combineReducers({
   miscellaneous: miscellaneousReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   loader: loaderReducer,
   auth: authReducer,
   profile: profileReducer,
+  dashboard: dashboardReducer,
 });
 
 const persistConfig = {

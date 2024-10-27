@@ -4,12 +4,15 @@ import { redisClient } from "../../config/redis.config.js";
 
 export const getPortfolio = catchAsyncError(async (req, res, next) => {
   const cached = await redisClient.get("portfolioData");
-  if (!cached) {
+
+  if (cached) {
     console.log("From Redis");
+
+    const user = JSON.parse(cached);
 
     return res.status(200).json({
       success: true,
-      poftfolio: JSON.parse(cached),
+      poftfolio: user,
     });
   }
 

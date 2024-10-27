@@ -4,6 +4,7 @@ const initialState = {
   isAuthenticatdloader: false,
   authLoader: false,
   profileLoader: false,
+  dashboardLoader: false,
 };
 
 const loaderSlice = createSlice({

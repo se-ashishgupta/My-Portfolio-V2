@@ -20,7 +20,7 @@ const Home = () => {
       {/* Sidebar Layout  */}
       <div className="sticky top-0 left-0 z-20">
         <div
-          className={`absolute h-full xl:sticky w-[15rem] rounded- overflow-hidden ${
+          className={`absolute h-full xl:sticky w-[15rem] rounded-lg overflow-hidden ${
             sidebarStatus ? " translate-x-0" : "translate-x-[-110%]"
           }  xl:translate-x-0 transition-all duration-300 bg-backPrimary-gradient`}
         >
