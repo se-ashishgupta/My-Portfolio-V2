@@ -15,21 +15,22 @@ generator client {
 }
 
 model User {
-  id          Int          @id @default(autoincrement())
-  firstName   String
-  lastName    String
-  email       String       @unique
-  mobile      String       @unique
-  password    String
-  role        String       @default("admin")
-  about       String?
-  thought     String?
-  address     Address?
-  avatar      Avatar?
-  titles      Titles[]
-  projects    Project[]
-  socialLinks SocialLinks?
-  experience  Int?
+  id             Int             @id @default(autoincrement())
+  firstName      String
+  lastName       String
+  email          String          @unique
+  mobile         String          @unique
+  password       String
+  role           String          @default("admin")
+  about          String?
+  thought        String?
+  experience     Int?
+  address        Address?
+  avatar         Avatar?
+  titles         Titles[]
+  projects       Project[]
+  socialLinks    SocialLinks?
+  dashboardStats DashboardStats?
 
   // Password reset fields
   resetPasswordToken  String?
@@ -42,44 +43,46 @@ model User {
 
 model Avatar {
   id        Int       @id @default(autoincrement())
+  userId    Int       @unique
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   publicId  String    @map("public_id") // Maps to public_id in the database
   url       String
-  userId    Int       @unique
-  user      User      @relation(fields: [userId], references: [id])
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
 }
 
 model Titles {
   id     Int    @id @default(autoincrement())
-  title  String
   userId Int
-  user   User   @relation(fields: [userId], references: [id])
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title  String
 }
 
 model SocialLinks {
-  id        Int      @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
+  userId    Int     @unique
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   linkedin  String?
   github    String?
   facebook  String?
   twitter   String?
   instagram String?
   youtube   String?
-  userId    Int      @unique
-  user      User     @relation(fields: [userId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Address {
-  id         Int      @id @default(autoincrement())
+  id         Int     @id @default(autoincrement())
+  userId     Int     @unique
+  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   street     String?
   city       String?
   state      String?
   postalCode String?
   country    String?
-  user       User     @relation(fields: [userId], references: [id])
-  userId     Int      @unique
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

@@ -16,7 +16,7 @@ const HandlerButton = ({
       disabled={disabled || loading}
     >
       {loading ? (
-        <div className=" border-2 w-7 h-7 rounded-full border-text_color1 border-l-primary_color animate-spin mx-auto"></div>
+        <div className=" border-2 w-6 h-6 rounded-full border-text_color1 border-l-primary_color animate-spin mx-auto"></div>
       ) : (
         text
       )}

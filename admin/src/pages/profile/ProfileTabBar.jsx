@@ -6,6 +6,9 @@ const ProfileTabSidebar = ({ profileTab, setProfileTab }) => {
       title: "General Info",
     },
     {
+      title: "Titles",
+    },
+    {
       title: "Address",
     },
     {

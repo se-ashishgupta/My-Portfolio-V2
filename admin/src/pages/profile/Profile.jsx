@@ -10,6 +10,7 @@ import {
 import ScaleLoading from "../../components/layouts/loader/ScaleLoading";
 import Address from "./Address";
 import SocialMedia from "./SocialMedia";
+import Titles from "./Titles";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ const Profile = () => {
           {profileTab === "General Info" && <General />}
           {profileTab === "Address" && <Address />}
           {profileTab === "Social Media" && <SocialMedia />}
+          {profileTab === "Titles" && <Titles />}
         </>
       )}
     </div>

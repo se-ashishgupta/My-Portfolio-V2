@@ -21,3 +21,7 @@ export const addressSchema = Yup.object({
   postalCode: Yup.string(),
   country: Yup.string(),
 });
+
+export const titlesSchema = Yup.object({
+  title: Yup.string().required("Title is required"),
+});

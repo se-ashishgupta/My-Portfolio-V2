@@ -28,6 +28,7 @@ import authRoutes from "./modules/admin/auth/auth.routes.js";
 import portfolioRoute from "./modules/poftfolio/portfolio.routes.js";
 import chatBotRoute from "./modules/chatBot/cahtBot.routes.js";
 import profileRoutes from "./modules/admin/profile/profile.routes.js";
+import dashboardRoutes from "./modules/admin/dashboard/dashboard.routes.js";
 
 app.use("/api/v2", portfolioRoute);
 app.use("/api/v2", chatBotRoute);
@@ -35,6 +36,7 @@ app.use("/api/v2", chatBotRoute);
 // Admin
 app.use("/api/v2", authRoutes);
 app.use("/api/v2/admin", profileRoutes);
+app.use("/api/v2/admin", dashboardRoutes);
 
 app.get("/", (req, res, next) => {
   return res.send("Server is Running Healthy");

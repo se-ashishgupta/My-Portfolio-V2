@@ -1,0 +1,10 @@
+model DashboardStats {
+    id             Int      @id @default(autoincrement())
+    userId         Int      @unique
+    user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    views          Int      @default(0)
+    projectsCount  Int      @default(0)
+    blogPostsCount Int      @default(0)
+    visitorsCount  Int      @default(0)
+    updatedAt      DateTime @updatedAt
+}
